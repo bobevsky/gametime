@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/gametime/static/media/twitter.9a513524.png"
   },
   {
-    "revision": "7385cc5c8298eef687ece5534dbc7d89",
+    "revision": "7d257cb711e8d74ab6e866b22438db73",
     "url": "/gametime/index.html"
   }
 ];
