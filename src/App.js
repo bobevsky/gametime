@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.sass';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {HashRouter as Router, Switch, Route} from "react-router-dom";
 import ScrollUpButton from "react-scroll-up";
 import Navbar from "./Components/Navbar";
 import Games from "./Components/Games";
