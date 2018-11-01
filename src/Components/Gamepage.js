@@ -32,7 +32,7 @@ class Gamepage extends Component {
 	render() {
 		const {category, title, description, image, time, players, level, materials} = this.state.games;
 		const style = {
-			backgroundImage: `url("/Images/${image}.png")`,
+			backgroundImage: `url("Images/${image}.png")`,
 			backgroundPosition: "center",
 			backgroundSize: "contain",
 			backgroundRepeat: "no-repeat"
@@ -126,13 +126,15 @@ class Gamepage extends Component {
 										)
 									})}
 								</div>
-								<div className="col-md-4">
-									{this.state.images.map((image,i) => {
-										const style = {
-											// backgroundImage: `url("${image}.png")`
-										}
-										return (<div style={style} key={i}></div>)})}
-								</div>
+								{
+								// <div className="col-md-4">
+								// 	{this.state.images.map((image,i) => {
+								// 		const style = {
+								// 			// backgroundImage: `url("${image}.png")`
+								// 		}
+								// 		return (<div style={style} key={i}></div>)})}
+								// </div>
+								}
 							</div>
 						</div>
 					</div>
