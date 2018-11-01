@@ -140,13 +140,13 @@ class Gamepage extends Component {
 						</div>
 					</div>
 					<div className="row">
-						<div className="col-md-10 col-md-offset-1">
+						<div className="col-md-8 col-md-offset-2">
 							<ReactDisqusComments
-						        shortname="gametime"
-						        identifier={image}
+						        shortname="brainsterbox"
+						        identifier= "brainsterbox.disqus.com"
 						        title="Comments"
-						        url={`https://bobevsky.github.io/gametime/#/game/${this.props.match.params.id}`}
-						        category_id="123456"/>
+						        url={window.location.href}
+						    />
 						</div>
 					</div>
 				</div>
