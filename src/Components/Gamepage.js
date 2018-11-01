@@ -49,6 +49,7 @@ class Gamepage extends Component {
 					<meta property="og:image" content={`Images/${image}.png`} />
 					<meta property="og:type" content="article" /> 
 					<meta name="author" content="Kristijan Bobevski" />
+					<meta name="og:url" content={`https://bobevsky.github.io/gametime/#/game/${image}`} />
 	            </Helmet>
 				<div className="Gamepage">
 					<div className="row">
