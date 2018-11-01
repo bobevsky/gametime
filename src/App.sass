@@ -405,7 +405,7 @@
 	i
 		font-size: 2.5em
 
-// ---------------------------------- MEDIA-TABLET-STYLES ----------------------------------------------------------
+// ---------------------------------- MEDIA-STYLES ----------------------------------------------------------
 @media screen and (max-width: 1024px)
 	.Filters 
 		button
@@ -446,6 +446,9 @@
 	.StaffPick 
 		button
 			padding: 15px 28px
+		.description-div
+			&::after
+				height: 29px
 	.button-up
 		display: none
 	.Footer 
@@ -470,7 +473,9 @@
 
 	.StaffPick
 		margin-bottom: 30px
-	
+		.description-div
+			&::after
+				bottom: 104px
 	.Footer 
 		h2
 			font-size: 18px
@@ -548,6 +553,10 @@
 			button
 				background-color: white
 				color: #615c5c
+		.description-div
+			&::after
+				bottom: 104px
+				height: 22px
 	.Footer 
 		.col-md-4:nth-child(2),
 		.col-md-4:nth-child(1) 
@@ -568,12 +577,15 @@
 
 @media screen and (max-width: 375px)
 	.StaffPick
+		padding: 15px 15px 15px 15px
 		h3
 			font-size: 15px
-	.StaffPick
-		padding: 15px 15px 15px 15px
 		button
 			padding: 12px 15px
+		.description-div
+			&::after
+				bottom: 101px
+				height: 29px
 
 @media screen and (max-width: 320px)
 	.Game

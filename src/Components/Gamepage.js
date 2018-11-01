@@ -64,7 +64,7 @@ class Gamepage extends Component {
 							<p>{description}</p>
 						</div>
 						<div className="col-md-1 col-md-offset-2 text-center col-sm-1 col-sm-offset-1 hidden-xs">
-							<a href="#social-media"><i><i className="fas fa-share-alt fa-3x"></i></i> SHARE</a>
+							<a href="#social-media"><i className="fas fa-share-alt fa-3x"></i> SHARE</a>
 						</div>
 					</div>
 					<div className="row">
@@ -151,7 +151,7 @@ class Gamepage extends Component {
 						</div>
 					</div>
 					<div className="row">
-						<div className="col-md-8 col-md-offset-2">
+						<div className="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 							<ReactDisqusComments
 						        shortname="brainsterbox"
 						        identifier= "brainsterbox.disqus.com"
