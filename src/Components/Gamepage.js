@@ -10,7 +10,7 @@ class Gamepage extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get(`http://localhost:3001/games/${this.props.match.params.id}`);
+		let games = await axios.get(`https://bobevsky.github.io/db/db.json/${this.props.match.params.id}`);
 		this.setState({
 			games: games.data,
 			steps: games.data.steps,
@@ -20,7 +20,7 @@ class Gamepage extends Component {
 	
 	async componentDidUpdate(prevProps){
 		if (this.props.location !== prevProps.location) {
-			let games = await axios.get(`http://localhost:3001/games/${this.props.match.params.id}`);
+			let games = await axios.get(`https://bobevsky.github.io/db/db.json/${this.props.match.params.id}`);
 			this.setState({
 				games: games.data,
 				steps: games.data.steps,
