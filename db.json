@@ -2,6 +2,7 @@
 	"games":[
 		{
 			"id":"1",
+			"promena": "da",
 			"image":"1",
 			"title":"Hello Kitty",
 			"category":"Енергија",
