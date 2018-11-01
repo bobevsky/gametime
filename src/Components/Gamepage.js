@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import uuid from "uuid";
 import ReactDisqusComments from 'react-disqus-comments';
+import { SimpleShareButtons } from "react-simple-share";
     	
 class Gamepage extends Component {
 	state = {
@@ -53,7 +54,7 @@ class Gamepage extends Component {
 							<p>{description}</p>
 						</div>
 						<div className="col-md-1 col-md-offset-2 text-center col-sm-1 col-sm-offset-1 hidden-xs">
-							<a href="/"><i><i className="fas fa-share-alt fa-3x"></i></i> SHARE</a>
+							<a href="#social-media"><i><i className="fas fa-share-alt fa-3x"></i></i> SHARE</a>
 						</div>
 					</div>
 					<div className="row">
@@ -147,6 +148,13 @@ class Gamepage extends Component {
 						        title="Comments"
 						        url={window.location.href}
 						    />
+						</div>
+					</div>
+					<div className="row" id="social-media">
+						<div className="col-md-12">
+							<SimpleShareButtons
+							    whitelist={["Facebook", "Twitter", "LinkedIn", "Google+"]} size="40px"
+							/>
 						</div>
 					</div>
 				</div>
