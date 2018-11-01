@@ -2,9 +2,11 @@
   "name": "project3-gametime",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://bobevsky.github.io/gametime",
   "dependencies": {
     "anchorate": "^1.2.3",
     "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
     "node-sass": "^4.9.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
@@ -14,6 +16,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

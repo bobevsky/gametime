@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.sass';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {HashRouter as Router, Switch, Route} from "react-router-dom";
 import ScrollUpButton from "react-scroll-up";
 import Navbar from "./Components/Navbar";
 import Games from "./Components/Games";
@@ -43,7 +43,7 @@ class App extends Component {
     }
 
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <ScrollToTop>
           <div className="App" style={style}>
             <Navbar fixed={this.toggleFixed} clearState={this.clearState}/>
