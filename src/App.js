@@ -49,7 +49,8 @@ class App extends Component {
             <Helmet>
               <title>BrainsterBox</title>
               <meta property="og:title" content="BrainsterBox" />
-              <meta name="og:description" content="Вашата лична кутија со ресурси и алатки за креативна колаборација и откривање на потенцијалот во твојот тим или организација." />
+              <meta name="og:description" content="Вашата лична кутија со ресурси и алатки за креативна колаборација и 
+              откривање на потенцијалот во твојот тим или организација." />
               <meta property="og:image" content="https://toolbox.hyperisland.com/images/fb-og.png" />
               <meta property="og:type" content="article" /> 
               <meta name="author" content="Kristijan Bobevski" />
