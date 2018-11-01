@@ -6,6 +6,7 @@
   "dependencies": {
     "anchorate": "^1.2.3",
     "axios": "^0.18.0",
+    "disqus-react": "^1.0.5",
     "gh-pages": "^2.0.1",
     "node-sass": "^4.9.4",
     "react": "^16.5.2",

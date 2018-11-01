@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import uuid from "uuid";
+import Disqus from "disqus-react";
+import { DiscussionEmbed, CommentCount } from 'disqus-react';
+
     	
 class Gamepage extends Component {
 	state = {
@@ -37,6 +40,12 @@ class Gamepage extends Component {
 			backgroundSize: "contain",
 			backgroundRepeat: "no-repeat"
 		}
+		const disqusShortname = 'gametime';
+        const disqusConfig = {
+            url: `https://bobevsky.github.io/gametime/#/game/${this.props.match.params.id}`,
+            identifier: image,
+            title: "gamepage"
+        };
 		return (
 			<div className="container">
 				<div className="Gamepage">
@@ -136,6 +145,13 @@ class Gamepage extends Component {
 								// </div>
 								}
 							</div>
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-md-10 col-md-offset-1">
+							<Disqus.CommentCount shortname={disqusShortname} config={disqusConfig}>
+			                    Comments
+			                </Disqus.CommentCount>
 						</div>
 					</div>
 				</div>
