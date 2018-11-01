@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/gametime/precache-manifest.fe6d7ce13891ede63100455a6adf784e.js"
+  "/gametime/precache-manifest.443bf2de73d7a8ee2d0ec2467beff14a.js"
 );
 
 workbox.clientsClaim();
