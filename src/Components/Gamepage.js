@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
 import axios from "axios";
 import uuid from "uuid";
 import ReactDisqusComments from 'react-disqus-comments';
@@ -64,7 +65,7 @@ class Gamepage extends Component {
 							<p>{description}</p>
 						</div>
 						<div className="col-md-1 col-md-offset-2 text-center col-sm-1 col-sm-offset-1 hidden-xs">
-							<a href="#social-media"><i className="fas fa-share-alt fa-3x"></i> SHARE</a>
+							<Link smooth to="#social-media"><i className="fas fa-share-alt fa-3x"></i> SHARE</Link>
 						</div>
 					</div>
 					<div className="row">
