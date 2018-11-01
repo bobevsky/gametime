@@ -3,6 +3,7 @@ import axios from "axios";
 import uuid from "uuid";
 import ReactDisqusComments from 'react-disqus-comments';
 import { SimpleShareButtons } from "react-simple-share";
+import {Helmet} from "react-helmet";
     	
 class Gamepage extends Component {
 	state = {
@@ -41,6 +42,14 @@ class Gamepage extends Component {
 		}
 		return (
 			<div className="container">
+				<Helmet>
+	                <title>{title}</title>
+	                <meta property="og:title" content={title} />
+					<meta name="og:description" content={description} />
+					<meta property="og:image" content={`Images/${image}.png`} />
+					<meta property="og:type" content="article" /> 
+					<meta name="author" content="Kristijan Bobevski" />
+	            </Helmet>
 				<div className="Gamepage">
 					<div className="row">
 						<div className="col-md-4 col-sm-4 col-xs-4">
