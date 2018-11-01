@@ -19,7 +19,7 @@ class Games extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("https://bobevsky.github.io/gametime/db.json");
+		let games = await axios.get("https://bobevsky.github.io/gametime/games.json");
 
 		this.setState({
 			games: games.data,
