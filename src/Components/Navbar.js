@@ -33,7 +33,7 @@ class Navbar extends Component {
 	close = () => {
 		this.props.clearState();
 		this.setState({
-			active: true,
+			active: false,
 			menu: false
 		})
 	}
