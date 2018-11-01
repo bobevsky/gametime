@@ -7,7 +7,7 @@ import Games from "./Components/Games";
 import Footer from "./Components/Footer";
 import Gamepage from "./Components/Gamepage";
 import ScrollToTop from "./Components/ScrollToTop";
-
+import {Helmet} from "react-helmet";
 
 import StaffPicks from "./Components/StaffPicks";
 
@@ -46,6 +46,15 @@ class App extends Component {
       <Router>
         <ScrollToTop>
           <div className="App" style={style}>
+            <Helmet>
+              <title>BrainsterBox</title>
+              <meta property="og:title" content="BrainsterBox" />
+              <meta name="og:description" content="Вашата лична кутија со ресурси и алатки за креативна колаборација и откривање на потенцијалот во твојот тим или организација." />
+              <meta property="og:image" content="https://toolbox.hyperisland.com/images/fb-og.png" />
+              <meta property="og:type" content="article" /> 
+              <meta name="author" content="Kristijan Bobevski" />
+              <meta name="og:url" content="https://bobevsky.github.io/gametime" />
+            </Helmet>
             <Navbar fixed={this.toggleFixed} clearState={this.clearState}/>
               <Switch>
                 <Route exact path="/" component={Games} />
