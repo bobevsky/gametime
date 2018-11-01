@@ -129,7 +129,7 @@ class Gamepage extends Component {
 								<div className="col-md-4">
 									{this.state.images.map((image,i) => {
 										const style = {
-											backgroundImage: `url("${image}.png")`
+											// backgroundImage: `url("${image}.png")`
 										}
 										return (<div style={style} key={i}></div>)})}
 								</div>
