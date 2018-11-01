@@ -40,7 +40,7 @@ class StaffPicks extends Component {
 					<div className="row">
 						{games.map( game => {
 							const style = {
-								backgroundImage: `url("/Images/${game.image}.png")`,
+								backgroundImage: `url("Images/${game.image}.png")`,
 								backgroundPosition: "center",
 								backgroundSize: 'contain',
 								backgroundRepeat: 'no-repeat'
