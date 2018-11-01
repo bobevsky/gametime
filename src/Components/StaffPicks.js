@@ -10,7 +10,7 @@ class StaffPicks extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("https://bobevsky.github.io/gametime/games.json");
+		let games = await axios.get("http://127.0.0.1:3001/games");
 		
 		this.setState({
 			games: games.data.filter(game => {
