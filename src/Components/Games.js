@@ -19,7 +19,7 @@ class Games extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("http://localhost:3001/games/");
+		let games = await axios.get("https://json-project3.herokuapp.com/posts");
 
 		this.setState({
 			games: games.data,
