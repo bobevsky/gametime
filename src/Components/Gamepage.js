@@ -43,6 +43,7 @@ class Gamepage extends Component {
 		}
 		return (
 			<div className="container">
+				<div className="Gamepage">
 				<Helmet>
 	                <title>{title}</title>
 	                <meta property="og:title" content={title} />
@@ -50,9 +51,8 @@ class Gamepage extends Component {
 					<meta property="og:image" content={`Images/${image}.png`} />
 					<meta property="og:type" content="article" /> 
 					<meta name="author" content="Kristijan Bobevski" />
-					<meta name="og:url" content={`https://bobevsky.github.io/gametime/#/game/${image}`} />
+					<meta name="og:url" content={`http://localhost:3001/games/${image}`} />
 	            </Helmet>
-				<div className="Gamepage">
 					<div className="row">
 						<div className="col-md-4 col-sm-4 col-xs-4">
 							<div className="game-image" style={style}>
