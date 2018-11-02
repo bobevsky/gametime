@@ -48,7 +48,7 @@ class Gamepage extends Component {
 	                <title>{title}</title>
 	                <meta property="og:title" content={title} />
 					<meta name="og:description" content={description} />
-					<meta property="og:image" content={`Images/${image}.png`} />
+					<meta property="og:image" content="" />
 					<meta property="og:type" content="article" /> 
 					<meta name="author" content="Kristijan Bobevski" />
 					<meta name="og:url" content={`https://json-project3.herokuapp.com/posts/${image}`} />
