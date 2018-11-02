@@ -1,9 +1,9 @@
 {
-  "main.css": "/gametime/static/css/main.8f96fbc2.chunk.css",
-  "main.js": "/gametime/static/js/main.ded8a4a2.chunk.js",
-  "main.js.map": "/gametime/static/js/main.ded8a4a2.chunk.js.map",
-  "static/js/1.8efe981f.chunk.js": "/gametime/static/js/1.8efe981f.chunk.js",
-  "static/js/1.8efe981f.chunk.js.map": "/gametime/static/js/1.8efe981f.chunk.js.map",
+  "main.css": "/gametime/static/css/main.bcb299ca.chunk.css",
+  "main.js": "/gametime/static/js/main.4921cbb2.chunk.js",
+  "main.js.map": "/gametime/static/js/main.4921cbb2.chunk.js.map",
+  "static/js/1.51a3d286.chunk.js": "/gametime/static/js/1.51a3d286.chunk.js",
+  "static/js/1.51a3d286.chunk.js.map": "/gametime/static/js/1.51a3d286.chunk.js.map",
   "runtime~main.js": "/gametime/static/js/runtime~main.517e8416.js",
   "runtime~main.js.map": "/gametime/static/js/runtime~main.517e8416.js.map",
   "static/media/01.png": "/gametime/static/media/01.b48fe09b.png",
@@ -13,8 +13,8 @@
   "static/media/instagram.png": "/gametime/static/media/instagram.6a9fb2ed.png",
   "static/media/twitter.png": "/gametime/static/media/twitter.9a513524.png",
   "static/media/02.png": "/gametime/static/media/02.aa1ba4eb.png",
-  "static/css/main.8f96fbc2.chunk.css.map": "/gametime/static/css/main.8f96fbc2.chunk.css.map",
+  "static/css/main.bcb299ca.chunk.css.map": "/gametime/static/css/main.bcb299ca.chunk.css.map",
   "index.html": "/gametime/index.html",
-  "precache-manifest.439348b8985e6864c008c590bcdac94f.js": "/gametime/precache-manifest.439348b8985e6864c008c590bcdac94f.js",
+  "precache-manifest.fc0bddd5ecaca29bc3796b2ac2949afb.js": "/gametime/precache-manifest.fc0bddd5ecaca29bc3796b2ac2949afb.js",
   "service-worker.js": "/gametime/service-worker.js"
 }
