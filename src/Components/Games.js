@@ -19,7 +19,7 @@ class Games extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("http://127.0.0.1:3001/games");
+		let games = await axios.get("http://localhost:3001/games/");
 
 		this.setState({
 			games: games.data,
@@ -88,8 +88,7 @@ class Games extends Component {
 
 	inovacii = () => {
 		const inovacii = (this.state.games.filter(game => game.category === "Иновации"))
-		console.log(this.state.separateGames.concat(inovacii))
-		console.log([...this.state.separateGames, inovacii])
+
 		if (this.state.globalactive === false) {
 			this.setState({
 					separateGames: inovacii,
@@ -260,7 +259,7 @@ class Games extends Component {
 			separateGames: groupThree
 		})
 	}
-
+	
 	render() {
 		const {separateGames,games} = this.state;
 		return (
