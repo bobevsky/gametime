@@ -97,7 +97,7 @@ class Games extends Component {
 					})	
 				} else {
 					this.setState({
-							separateGames: separateGames.filter(item => conditions.players.includes(item.players))
+							separateGames: games.filter(item => conditions.players.includes(item.players))
 					})
 				}					
 			}
