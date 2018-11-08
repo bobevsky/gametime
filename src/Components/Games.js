@@ -9,13 +9,11 @@ class Games extends Component {
 	state = {
 		games: [],
 		separateGames: [],
-		globalactive: false,
-		activeAkcii: false,
-		activeEnergija: false,
-		activeInovacii: false,
-		activeTim: false,
-		activeLiderstvo: false,
-		activeTimeOne: false
+		conditions: {
+			category: [],
+			time: [],
+			players: []
+		}
 	}
 
 	async componentDidMount(){
@@ -26,240 +24,192 @@ class Games extends Component {
 			separateGames: games.data
 		});
 	}
+	
+	addRemoveCategory = (clickedCategory, type, value) => {
+			const {conditions} = this.state;
+		// this.state.games.map(game => {
+				console.log(this.state.games.filter(game => game.players.includes('+')))
 
-	energija = () => {
-		const energija = (this.state.games.filter(game => game.category === "Енергија"))
+				if (conditions.category.length > 0) {
+					//ako go nema na prv klik
+					if (conditions.category.includes(clickedCategory[0].category)) {
+							this.setState(prevState=> {
+								return {
+									separateGames: prevState.separateGames.filter(item=> conditions.category.every(condition => condition === item.category))
+								}
+							})						
+					}
+					//ako go ima na prv klik
+					if (!conditions.category.includes(clickedCategory[0].category)) {
+						this.setState(prevState=> {
+									return {
+										separateGames: this.state.games.filter(item => conditions.category.every(condition => condition === item.category) && 
+											conditions.time.every(condition => condition === item.time) &&
+											conditions.players.every(condition => condition === item.players))
+									}
+								})
+					}
+				}
+				
+				if (conditions.time.length > 0) {
+					//ako go nema na prv klik
+					if (conditions.time.includes(clickedCategory[0].time)) {
+							this.setState(prevState=> {
+								return {
+									separateGames: this.state.separateGames.filter(item => conditions.time.every(condition => condition === item.time))
+								}
+							})						
+					}
+					//ako go ima na prv klik
+					if (!conditions.time.includes(clickedCategory[0].time)) {
+						this.setState(prevState=> {
+									return {
+										separateGames: this.state.games.filter(item => conditions.time.every(condition => condition === item.time) && 
+											conditions.category.every(condition => condition === item.category) &&
+											conditions.players.every(condition => condition === item.players))
+									}
+								})
+					}
+				}
 
-		if (this.state.globalactive === false) {
-			this.setState({
-					separateGames: energija,
-					activeEnergija: true,
-					globalactive: true
-				})
-		} else {
-			if (this.state.activeEnergija === true) {
-				this.setState(prevState => {
-						return {
-							separateGames: prevState.separateGames.filter(game => game.category !== "Енергија"),
-							activeEnergija: false
-						}
+				if (conditions.players.length > 0) {
+					//ako go nema na prv klik
+					if (conditions.players.includes(clickedCategory[0].players)) {
+							this.setState(prevState=> {
+								return {
+									separateGames: this.state.separateGames.filter(item => conditions.players.every(condition => condition === item.players))
+								}
+							})						
+					}
+					//ako go ima na prv klik
+					if (!conditions.players.includes(clickedCategory[0].players)) {
+						this.setState(prevState=> {
+									return {
+										separateGames: this.state.games.filter(item => conditions.players.every(condition => condition === item.players) && 
+											conditions.category.every(condition => condition === item.category) && 
+											conditions.time.every(condition => condition === item.time))
+									}
+								})
+					}
+				}
+				
+				if (conditions.category.length === 0 && conditions.time.length === 0 && conditions.players.length === 0) {
+					this.setState({
+						separateGames: this.state.games
 					})
-			}
-			if (this.state.activeEnergija === false){
-				this.setState(prevState => {
-					return {
-						separateGames: prevState.separateGames.concat(energija),
-						activeEnergija: true
-					}
-				})	
-			}
-		}
+				}
+
 	}
 
-	akcii = () => {
-		const akcii = (this.state.games.filter(game => game.category === "Акции"));
+	buttonclick = (clickedCategory, type, value) => {
+		// console.log(this.state[type])
+		// console.log(type)
+		// console.log(value)
 
-		if (this.state.globalactive === false) {
-			this.setState({
-					separateGames: akcii,
-					activeAkcii: true,
-					globalactive: true
-				})
-		} else {
-			if (this.state.activeAkcii === true) {
-				this.setState(prevState => {
-						return {
-							separateGames: prevState.separateGames.filter(game => game.category !== "Акции"),
-							activeAkcii: false
-						}
-					})				
-			}
-			if (this.state.activeAkcii === false){
-				this.setState(prevState => {
-					return {
-						separateGames: prevState.separateGames.concat(akcii),
-						activeAkcii: true
-					}
-				})
-			}
-		}
 		
+		if (this.state.conditions[type].includes(value)) {
+			var index = this.state.conditions[type].indexOf(value);
+				this.state.conditions[type].splice(index, 1);
+		} else {
+			this.state.conditions[type].push(value);
+
+		}
+
+		this.addRemoveCategory(clickedCategory, type, value)
+	}
+	
+	energija = (e) => {
+		let value = e.target.id;
+		let energija = this.state.games.filter(game => game.category === "Енергија")
+		let type = "category";
+		this.buttonclick(energija ,type, value);
 	}
 
-	inovacii = () => {
-		const inovacii = (this.state.games.filter(game => game.category === "Иновации"))
-
-		if (this.state.globalactive === false) {
-			this.setState({
-					separateGames: inovacii,
-					activeInovacii: true,
-					globalactive: true
-				})
-		} else {
-			if (this.state.activeInovacii === true) {
-				this.setState(prevState => {
-						return {
-							separateGames: prevState.separateGames.filter(game => game.category !== "Иновации"),
-							activeInovacii: false
-						}
-					})				
-			}
-			if (this.state.activeInovacii === false){
-				this.setState(prevState => {
-					return {
-						separateGames: prevState.separateGames.concat(inovacii),
-						activeInovacii: true
-					}
-				})
-			}
-		}
+	akcii = (e) => {
+		let value = e.target.id;
+		let akcii = this.state.games.filter(game => game.category === "Акции");
+		let type = "category";
+		this.buttonclick(akcii,type, value);		
 	}
 
-	tim = () => {
-		const tim = (this.state.games.filter(game => game.category === "Тим"))
-		
-		if (this.state.globalactive === false) {
-			this.setState({
-					separateGames: tim,
-					activeTim: true,
-					globalactive: true
-				})
-		} else {
-			if (this.state.activeTim === true) {
-				this.setState(prevState => {
-						return {
-							separateGames: prevState.separateGames.filter(game => game.category !== "Тим"),
-							activeTim: false
-						}
-					})				
-			}
-			if (this.state.activeTim === false){
-				this.setState(prevState => {
-					return {
-						separateGames: prevState.separateGames.concat(tim),
-						activeTim: true
-					}
-				})
-			}
-		}
+	inovacii = (e) => {
+		let value = e.target.id;
+		let inovacii = this.state.games.filter(game => game.category === "Иновации")
+		let type = "category";
+		this.buttonclick(inovacii,type, value);		
 	}
 
-	liderstvo = () => {
-		const liderstvo = (this.state.games.filter(game => game.category === "Лидерство"))
-		
-		if (this.state.globalactive === false) {
-			this.setState({
-					separateGames: liderstvo,
-					activeLiderstvo: true,
-					globalactive: true
-				})
-		} else {
-			if (this.state.activeLiderstvo === true) {
-				this.setState(prevState => {
-						return {
-							separateGames: prevState.separateGames.filter(game => game.category !== "Лидерство"),
-							activeLiderstvo: false
-						}
-					})				
-			}
-			if (this.state.activeLiderstvo === false){
-				this.setState(prevState => {
-					return {
-						separateGames: prevState.separateGames.concat(liderstvo),
-						activeLiderstvo: true
-					}
-				})
-			}
-		}
+	tim = (e) => {
+		let value = e.target.id;
+		let tim = this.state.games.filter(game => game.category === "Тим")
+		let type = "category";
+		this.buttonclick(tim,type, value);		
+
+	}
+
+	liderstvo = (e) => {
+		let value = e.target.id;
+		let liderstvo = this.state.games.filter(game => game.category === "Лидерство")
+		let type = "category";
+		this.buttonclick(liderstvo,type, value);
 	}
 	
 	all = () => {
-		this.setState(prevState => {
-			return {
-				separateGames: prevState.games,
-				globalactive: false,
-				activeAkcii: false,
-				activeEnergija: false,
-				activeInovacii: false,
-				activeTim: false,
-				activeLiderstvo: false,
-				activeTimeOne: false
-			}
-		})
-	}
-
-	showTimeFrameOne = () => {
-		const timeFrameOne = (this.state.games.filter(game => game.time === "5-30 минути"))
-		
-		if (this.state.globalactive === false) {
-			this.setState({
-					separateGames: timeFrameOne,
-					activeTimeOne: true,
-					globalactive: true
-				})
-		} else {
-			if (this.state.activeTimeOne === true) {
-				this.setState(prevState => {
-						return {
-							separateGames: prevState.separateGames.filter(game => game.time !== "5-30 минути"),
-							activeTimeOne: false
-						}
-					})				
-			}
-			if (this.state.activeTimeOne === false){
-				this.setState(prevState => {
-					return {
-						separateGames: prevState.separateGames.filter(game => game.time === "5-30 минути"),
-						activeTimeOne: true
-					}
-				})
-			}
-		}
 		
 	}
 
-	showTimeFrameTwo = () => {
-		const timeFrameTwo = (this.state.games.filter(game => game.time === "30-60 минути"))
-		this.setState({
-			separateGames: timeFrameTwo
-		})
+	showTimeFrameOne = (e) => {
+		let value = e.target.id;
+		let timeFrameOne = this.state.games.filter(game => game.time === "5-30 минути")
+		let type = "time";
+		this.buttonclick(timeFrameOne,type, value);		
 	}
 
-	showTimeFrameThree = () => {
-		const timeFrameThree = (this.state.games.filter(game => game.time === "60-120 минути"))
-		this.setState({
-			separateGames: timeFrameThree
-		})
+	showTimeFrameTwo = (e) => {
+		let value = e.target.id;
+		let timeFrameTwo = this.state.games.filter(game => game.time === "30-60 минути")
+		let type = "time";
+		this.buttonclick(timeFrameTwo,type, value);		
+		
 	}
 
-	showTimeFrameFour = () => {
-		const timeFrameFour = (this.state.games.filter(game => game.time === "120-240 минути"))
-		this.setState({
-			separateGames: timeFrameFour
-		})
+	showTimeFrameThree = (e) => {
+		let value = e.target.id;
+		let timeFrameThree = this.state.games.filter(game => game.time === "60-120 минути")
+		let type = "time";
+		this.buttonclick(timeFrameThree,type, value);		
+		
 	}
 
-	showGroupOne = () => {
-		const groupOne = (this.state.games.filter(game => game.players === "2-10"))
-		this.setState({
-			separateGames: groupOne
-		})
+	showTimeFrameFour = (e) => {
+		let value = e.target.id;
+		let timeFrameFour = this.state.games.filter(game => game.time === "120-240 минути")
+		let type = "time";
+		this.buttonclick(timeFrameFour,type, value);		
+		
 	}
 
-	showGroupTwo = () => {
-		const groupTwo = (this.state.games.filter(game => game.players === "10-40"))
-		this.setState({
-			separateGames: groupTwo
-		})
+	showGroupOne = (e) => {
+		let groupOne = this.state.games.filter(game => game.players === "2-10")
+		let value = e.target.id;
+		let type = "players";
+		this.buttonclick(groupOne, type, value);
 	}
 
-	showGroupThree = () => {
-		const groupThree = (this.state.games.filter(game => game.players === "2-40+" || game.players === "10-40+"))
-		this.setState({
-			separateGames: groupThree
-		})
+	showGroupTwo = (e) => {
+		let groupTwo = (this.state.games.filter(game => game.players === "10-40"))
+		let value = e.target.id;
+		let type = "players";
+		this.buttonclick(groupTwo, type, value);
 	}
-	
+
+	showGroupThree = (e) => {
+		let groupThree = this.state.games.filter(game => game.players.includes("40+"))
+		let value = e.target.id || e.target.dataset.players;
+		let type = "players";
+		this.buttonclick(groupThree, type, value);
+	}
+
 	render() {
 		const {separateGames,games} = this.state;
 		return (
