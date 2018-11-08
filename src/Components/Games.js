@@ -37,13 +37,13 @@ class Games extends Component {
 			if (conditions.category.includes(clickedCategory[0].category)) {
 				if (conditions.players.length > 0 || conditions.time.length > 0) {
 					this.setState({
-							separateGames: games.filter(item=> conditions.category.includes(item.category))
+							separateGames: separateGames.filter(item => conditions.category.includes(item.category) && (
+																		conditions.time.includes(item.time) ||
+																		conditions.players.includes(item.players)))
 					})			
 				} else {
 					this.setState({
-							separateGames: games.filter(item => conditions.category.every(condition => condition === item.category) && 
-															conditions.time.every(condition => condition === item.time) &&
-															conditions.players.every(condition => condition === item.players))
+							separateGames: games.filter(item => conditions.category.includes(item.category))
 					})	
 				}	
 			}
@@ -66,11 +66,13 @@ class Games extends Component {
 			if (conditions.time.includes(clickedCategory[0].time)) {
 				if (conditions.players.length > 0 || conditions.category.length > 0) {
 					this.setState({
-							separateGames: separateGames.filter(item => conditions.time.includes(item.time))
+							separateGames: separateGames.filter(item => conditions.time.includes(item.time) && (
+																		conditions.category.includes(item.category) ||
+																		conditions.players.includes(item.players)))
 					})		
 				} else {
 					this.setState({
-							separateGames: separateGames.filter(item => conditions.time.includes(item.time))
+							separateGames: games.filter(item => conditions.time.includes(item.time))
 					})	
 				}	
 												
@@ -93,7 +95,9 @@ class Games extends Component {
 			if (conditions.players.includes(clickedCategory[0].players)) {
 				if (conditions.time.length > 0 || conditions.category.length > 0) {
 					this.setState({
-							separateGames: separateGames.filter(item => conditions.players.includes(item.players))
+							separateGames: separateGames.filter(item => conditions.players.includes(item.players) && (
+																		conditions.category.includes(item.category) ||
+																		conditions.time.includes(item.time)))
 					})	
 				} else {
 					this.setState({
