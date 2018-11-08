@@ -25,133 +25,152 @@ class Games extends Component {
 		});
 	}
 	
-	addRemoveCategory = (clickedCategory, type, value) => {
-			const {conditions} = this.state;
-		// this.state.games.map(game => {
-				console.log(this.state.games.filter(game => game.players.includes('+')))
-
-				if (conditions.category.length > 0) {
-					//ako go nema na prv klik
-					if (conditions.category.includes(clickedCategory[0].category)) {
-							this.setState(prevState=> {
-								return {
-									separateGames: prevState.separateGames.filter(item=> conditions.category.every(condition => condition === item.category))
-								}
-							})						
-					}
-					//ako go ima na prv klik
-					if (!conditions.category.includes(clickedCategory[0].category)) {
-						this.setState(prevState=> {
-									return {
-										separateGames: this.state.games.filter(item => conditions.category.every(condition => condition === item.category) && 
-											conditions.time.every(condition => condition === item.time) &&
-											conditions.players.every(condition => condition === item.players))
-									}
-								})
-					}
-				}
+	//---------------------------------------- FILTERING LOGIC ------------------------------------------------------------------------------------------
+	mainFilter = (clickedCategory, type, value) => {
+		
+		const {conditions, games, separateGames} = this.state;
 				
-				if (conditions.time.length > 0) {
-					//ako go nema na prv klik
-					if (conditions.time.includes(clickedCategory[0].time)) {
-							this.setState(prevState=> {
-								return {
-									separateGames: this.state.separateGames.filter(item => conditions.time.every(condition => condition === item.time))
-								}
-							})						
-					}
-					//ako go ima na prv klik
-					if (!conditions.time.includes(clickedCategory[0].time)) {
-						this.setState(prevState=> {
-									return {
-										separateGames: this.state.games.filter(item => conditions.time.every(condition => condition === item.time) && 
-											conditions.category.every(condition => condition === item.category) &&
-											conditions.players.every(condition => condition === item.players))
-									}
-								})
-					}
-				}
-
-				if (conditions.players.length > 0) {
-					//ako go nema na prv klik
-					if (conditions.players.includes(clickedCategory[0].players)) {
-							this.setState(prevState=> {
-								return {
-									separateGames: this.state.separateGames.filter(item => conditions.players.every(condition => condition === item.players))
-								}
-							})						
-					}
-					//ako go ima na prv klik
-					if (!conditions.players.includes(clickedCategory[0].players)) {
-						this.setState(prevState=> {
-									return {
-										separateGames: this.state.games.filter(item => conditions.players.every(condition => condition === item.players) && 
-											conditions.category.every(condition => condition === item.category) && 
-											conditions.time.every(condition => condition === item.time))
-									}
-								})
-					}
-				}
-				
-				if (conditions.category.length === 0 && conditions.time.length === 0 && conditions.players.length === 0) {
+		//---------------------------------------- CATEGORY LOGIC ------------------------------------------------------------------------------------------
+		if (conditions.category.length > 0) {
+		//---------------------------------------- AKO GO NEMA NA PRV KLIK ---------------------------------------------------------------------------------
+			
+			if (conditions.category.includes(clickedCategory[0].category)) {
+				if (conditions.players.length > 0 || conditions.time.length > 0) {
 					this.setState({
-						separateGames: this.state.games
+							separateGames: games.filter(item=> conditions.category.includes(item.category))
+					})			
+				} else {
+					this.setState({
+							separateGames: games.filter(item => conditions.category.every(condition => condition === item.category) && 
+															conditions.time.every(condition => condition === item.time) &&
+															conditions.players.every(condition => condition === item.players))
+					})	
+				}	
+			}
+		
+		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
+			if (!conditions.category.includes(clickedCategory[0].category)) {
+				this.setState({
+						separateGames: games.filter(item => conditions.category.every(condition => condition === item.category) && 
+															conditions.time.every(condition => condition === item.time) &&
+															conditions.players.every(condition => condition === item.players))
+				})
+			}
+		}
+				
+		//----------------------------------------- TIME LOGIC ------------------------------------------------------------------------------------------------
+		if (conditions.time.length > 0) {
+		
+		//---------------------------------------- AKO GO NEMA NA PRV KLIK ---------------------------------------------------------------------------------
+			
+			if (conditions.time.includes(clickedCategory[0].time)) {
+				if (conditions.players.length > 0 || conditions.category.length > 0) {
+					this.setState({
+							separateGames: separateGames.filter(item => conditions.time.includes(item.time))
+					})		
+				} else {
+					this.setState({
+							separateGames: separateGames.filter(item => conditions.time.includes(item.time))
+					})	
+				}	
+												
+			}
+		
+		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
+			if (!conditions.time.includes(clickedCategory[0].time)) {
+				this.setState({
+						separateGames: games.filter(item => conditions.time.every(condition => condition === item.time) && 
+															conditions.category.every(condition => condition === item.category) &&
+															conditions.players.every(condition => condition === item.players))
+				})
+			}
+		}
+				
+		//---------------------------------------- PLAYERS LOGIC --------------------------------------------------------------------------------------------
+		if (conditions.players.length > 0) {
+		
+		//---------------------------------------- AKO GO NEMA NA PRV KLIK ----------------------------------------------------------------------------------
+			if (conditions.players.includes(clickedCategory[0].players)) {
+				if (conditions.time.length > 0 || conditions.category.length > 0) {
+					this.setState({
+							separateGames: separateGames.filter(item => conditions.players.includes(item.players))
+					})	
+				} else {
+					this.setState({
+							separateGames: separateGames.filter(item => conditions.players.includes(item.players))
 					})
-				}
+				}					
+			}
+		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
+			
+			if (!conditions.players.includes(clickedCategory[0].players)) {
+				this.setState({
+						separateGames: games.filter(item => conditions.players.every(condition => condition === item.players) && 
+															conditions.time.every(condition => condition === item.time) && 
+															conditions.category.every(condition => condition === item.category))
+				})
+			}
+		}
+
+		//---------------------------------------- AKO SITE SE PRAZNI ---------------------------------------------------------------------------------------	
+
+		if (conditions.category.length === 0 && conditions.time.length === 0 && conditions.players.length === 0) {
+			this.setState({
+				separateGames: games
+			})
+		}
 
 	}
 
-	buttonclick = (clickedCategory, type, value) => {
-		// console.log(this.state[type])
-		// console.log(type)
-		// console.log(value)
-
-		
+	//---------------------------------------- ADD REMOVE CATEGORY FROM STATE LOGIC -------------------------------------------------------------------------
+	addRemoveCategory = (clickedCategory, type, value, e) => {
 		if (this.state.conditions[type].includes(value)) {
+			e.target.classList.remove('active')
 			var index = this.state.conditions[type].indexOf(value);
-				this.state.conditions[type].splice(index, 1);
+			this.state.conditions[type].splice(index, 1);
 		} else {
 			this.state.conditions[type].push(value);
+			e.target.classList.add('active')
 
 		}
 
-		this.addRemoveCategory(clickedCategory, type, value)
+		this.mainFilter(clickedCategory, type, value)
 	}
 	
 	energija = (e) => {
 		let value = e.target.id;
 		let energija = this.state.games.filter(game => game.category === "Енергија")
 		let type = "category";
-		this.buttonclick(energija ,type, value);
+		this.addRemoveCategory(energija, type, value, e);
 	}
 
 	akcii = (e) => {
 		let value = e.target.id;
 		let akcii = this.state.games.filter(game => game.category === "Акции");
 		let type = "category";
-		this.buttonclick(akcii,type, value);		
+		this.addRemoveCategory(akcii, type, value, e);		
 	}
 
 	inovacii = (e) => {
 		let value = e.target.id;
-		let inovacii = this.state.games.filter(game => game.category === "Иновации")
+		let inovacii = this.state.games.filter(game => game.category === "Иновации");
 		let type = "category";
-		this.buttonclick(inovacii,type, value);		
+		this.addRemoveCategory(inovacii, type, value, e);		
 	}
 
 	tim = (e) => {
 		let value = e.target.id;
-		let tim = this.state.games.filter(game => game.category === "Тим")
+		let tim = this.state.games.filter(game => game.category === "Тим");
 		let type = "category";
-		this.buttonclick(tim,type, value);		
+		this.addRemoveCategory(tim, type, value, e);		
 
 	}
 
 	liderstvo = (e) => {
 		let value = e.target.id;
-		let liderstvo = this.state.games.filter(game => game.category === "Лидерство")
+		let liderstvo = this.state.games.filter(game => game.category === "Лидерство");
 		let type = "category";
-		this.buttonclick(liderstvo,type, value);
+		this.addRemoveCategory(liderstvo, type, value, e);
 	}
 	
 	all = () => {
@@ -160,54 +179,54 @@ class Games extends Component {
 
 	showTimeFrameOne = (e) => {
 		let value = e.target.id;
-		let timeFrameOne = this.state.games.filter(game => game.time === "5-30 минути")
+		let timeFrameOne = this.state.games.filter(game => game.time === "5-30 минути");
 		let type = "time";
-		this.buttonclick(timeFrameOne,type, value);		
+		this.addRemoveCategory(timeFrameOne,type, value, e);		
 	}
 
 	showTimeFrameTwo = (e) => {
 		let value = e.target.id;
-		let timeFrameTwo = this.state.games.filter(game => game.time === "30-60 минути")
+		let timeFrameTwo = this.state.games.filter(game => game.time === "30-60 минути");
 		let type = "time";
-		this.buttonclick(timeFrameTwo,type, value);		
+		this.addRemoveCategory(timeFrameTwo,type, value, e);		
 		
 	}
 
 	showTimeFrameThree = (e) => {
 		let value = e.target.id;
-		let timeFrameThree = this.state.games.filter(game => game.time === "60-120 минути")
+		let timeFrameThree = this.state.games.filter(game => game.time === "60-120 минути");
 		let type = "time";
-		this.buttonclick(timeFrameThree,type, value);		
+		this.addRemoveCategory(timeFrameThree,type, value, e);		
 		
 	}
 
 	showTimeFrameFour = (e) => {
 		let value = e.target.id;
-		let timeFrameFour = this.state.games.filter(game => game.time === "120-240 минути")
+		let timeFrameFour = this.state.games.filter(game => game.time === "120-240 минути");
 		let type = "time";
-		this.buttonclick(timeFrameFour,type, value);		
+		this.addRemoveCategory(timeFrameFour,type, value, e);		
 		
 	}
 
 	showGroupOne = (e) => {
-		let groupOne = this.state.games.filter(game => game.players === "2-10")
+		let groupOne = this.state.games.filter(game => game.players === "2-10");
 		let value = e.target.id;
 		let type = "players";
-		this.buttonclick(groupOne, type, value);
+		this.addRemoveCategory(groupOne, type, value, e);
 	}
 
 	showGroupTwo = (e) => {
-		let groupTwo = (this.state.games.filter(game => game.players === "10-40"))
+		let groupTwo = this.state.games.filter(game => game.players === "10-40");
 		let value = e.target.id;
 		let type = "players";
-		this.buttonclick(groupTwo, type, value);
+		this.addRemoveCategory(groupTwo, type, value, e);
 	}
 
-	showGroupThree = (e) => {
-		let groupThree = this.state.games.filter(game => game.players.includes("40+"))
-		let value = e.target.id || e.target.dataset.players;
+	showGroupThree = (e) => { // --> ne e dinamicko
+		let groupThree = this.state.games.filter(game => game.players.includes("40+")); // --> ne e dinamicko
+		let value = e.target.id || e.target.dataset.players; // --> ne e dinamicko
 		let type = "players";
-		this.buttonclick(groupThree, type, value);
+		this.addRemoveCategory(groupThree, type, value, e);
 	}
 
 	render() {
