@@ -13,7 +13,8 @@ class Games extends Component {
 			category: [],
 			time: [],
 			players: []
-		}
+		},
+		allClick: true
 	}
 
 	async componentDidMount(){
@@ -32,8 +33,8 @@ class Games extends Component {
 				
 		//---------------------------------------- CATEGORY LOGIC ------------------------------------------------------------------------------------------
 		if (conditions.category.length > 0) {
+
 		//---------------------------------------- AKO GO NEMA NA PRV KLIK ---------------------------------------------------------------------------------
-			
 			if (conditions.category.includes(clickedCategory[0].category)) {
 				if (conditions.players.length > 0 || conditions.time.length > 0) {
 					this.setState({
@@ -81,9 +82,9 @@ class Games extends Component {
 		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
 			if (!conditions.time.includes(clickedCategory[0].time)) {
 				this.setState({
-						separateGames: games.filter(item => conditions.time.every(condition => condition === item.time) && 
-															conditions.category.every(condition => condition === item.category) &&
-															conditions.players.every(condition => condition === item.players))
+						separateGames: games.filter(item => conditions.time.every(condition => condition === item.time) && (
+															conditions.category.every(condition => condition === item.category) ||
+															conditions.players.every(condition => condition === item.players)))
 				})
 			}
 		}
@@ -110,7 +111,7 @@ class Games extends Component {
 			if (!conditions.players.includes(clickedCategory[0].players)) {
 				this.setState({
 						separateGames: games.filter(item => conditions.players.every(condition => condition === item.players) && 
-															conditions.time.every(condition => condition === item.time) && 
+															conditions.time.every(condition => condition === item.time) &&
 															conditions.category.every(condition => condition === item.category))
 				})
 			}
@@ -120,7 +121,8 @@ class Games extends Component {
 
 		if (conditions.category.length === 0 && conditions.time.length === 0 && conditions.players.length === 0) {
 			this.setState({
-				separateGames: games
+				separateGames: games,
+				allClick: true
 			})
 		}
 
@@ -132,10 +134,15 @@ class Games extends Component {
 			e.target.classList.remove('active')
 			var index = this.state.conditions[type].indexOf(value);
 			this.state.conditions[type].splice(index, 1);
+			this.setState({
+				allClick: true
+			})
 		} else {
 			this.state.conditions[type].push(value);
-			e.target.classList.add('active')
-
+			e.target.classList.add('active');
+			this.setState({
+				allClick: false
+			})
 		}
 
 		this.mainFilter(clickedCategory, type, value)
@@ -177,8 +184,19 @@ class Games extends Component {
 		this.addRemoveCategory(liderstvo, type, value, e);
 	}
 	
-	all = () => {
-		
+	all = (e, allClick) => {
+		this.setState(prevState => {
+			return {
+				separateGames: this.state.games,
+				conditions: {
+					category: [],
+					time: [],
+					players: []
+				},
+				allClick: !prevState.allClick
+			}
+		})	
+		// allClick.showAll = !allClick.showAll  //od true vo false
 	}
 
 	showTimeFrameOne = (e) => {
@@ -252,6 +270,7 @@ class Games extends Component {
 							timClick={this.tim}
 							liderstvoClick={this.liderstvo}
 							allClick={this.all}
+							showAll = {this.state.allClick}
 							timeFrameOne={this.showTimeFrameOne}
 							timeFrameTwo={this.showTimeFrameTwo}
 							timeFrameThree={this.showTimeFrameThree}
@@ -268,7 +287,9 @@ class Games extends Component {
 										}
 							return (<Link to={`/game/${game.id}`} key={game.id}><Game key={game.id} style={style} title={game.title}
 									category={game.category} time={game.time} players={game.players} /></Link>)
-							})}
+							})
+
+						}
 					</div>
 				</div>
 			</div>

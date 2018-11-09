@@ -5,6 +5,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 class Filters extends Component {
 	render() {
 		return (
+
 			<div className="col-md-12">
 				<div className="Filters">
 					<div className="row">
@@ -36,7 +37,8 @@ class Filters extends Component {
 									ЛИДЕРСТВО 
 										<span id="Лидерство">({this.props.liderstvo})</span>
 									</button>
-									<button className="btn-block" onClick={(e) => this.props.allClick(e)}>
+									<button className={this.props.showAll ? "btn-block active" : "btn-block"} 
+									 onClick={(e) => {this.props.allClick(e, this.state)}}>
 									СИТЕ 
 										<span id="site">({this.props.all})</span>
 									</button>
