@@ -4,8 +4,10 @@ import { HashLink as Link } from 'react-router-hash-link';
     	
 class Filters extends Component {
 	render() {
+		const {energijaColor, akciiColor, inovaciiColor, timColor, liderstvoColor, showAll, all, allClick, energija, akcii, tim, inovacii, liderstvo,
+			   energijaClick, akciiClick, inovaciiClick, timClick, liderstvoClick, timeOneClick, timeTwoClick, timeThreeClick, timeFourClick,
+			   groupOneClick, groupTwoClick, groupThreeClick, timeFrameOne, timeFrameTwo, timeFrameThree, timeFrameFour, groupOne, groupTwo, groupThree} = this.props;
 		return (
-
 			<div className="col-md-12">
 				<div className="Filters">
 					<div className="row">
@@ -13,34 +15,34 @@ class Filters extends Component {
 							<h5>Пребарајте преку категорија</h5>
 							<div className="row">
 								<div className="col-md-4 col-sm-4 col-xs-4">
-									<button className="btn-block" id="Енергија" onClick={(e) => this.props.energijaClick(e)}>
+									<button className={energijaColor ? "btn-block active" : "btn-block"} id="Енергија" onClick={(e) => energijaClick(e)}>
 									ЕНЕРГИЈА 
-										<span id="Енергија">({this.props.energija})</span>
+										<span id="Енергија">({energija})</span>
 									</button>
-									<button className="btn-block" id="Акции" onClick={(e) => this.props.akciiClick(e)}>
+									<button className={akciiColor ? "btn-block active" : "btn-block"} id="Акции" onClick={(e) => akciiClick(e)}>
 									АКЦИИ 
-										<span id="Акции">({this.props.akcii})</span>
+										<span id="Акции">({akcii})</span>
 									</button>
 								</div>
 								<div className="col-md-4 col-sm-4 col-xs-4">
-									<button className="btn-block" id="Иновации" onClick={(e) => this.props.inovaciiClick(e)}>
+									<button className={inovaciiColor ? "btn-block active" : "btn-block"} id="Иновации" onClick={(e) => inovaciiClick(e)}>
 									ИНОВАЦИИ 
-										<span id="Иновации">({this.props.inovacii})</span>
+										<span id="Иновации">({inovacii})</span>
 									</button>
-									<button className="btn-block" id="Тим" onClick={(e) => this.props.timClick(e)}>
+									<button className={timColor ? "btn-block active" : "btn-block"} id="Тим" onClick={(e) => timClick(e)}>
 									ТИМ 
-										<span id="Тим">({this.props.tim})</span>
+										<span id="Тим">({tim})</span>
 									</button>
 								</div>
 								<div className="col-md-4 col-sm-4 col-xs-4">
-									<button className="btn-block" id="Лидерство" onClick={(e) => this.props.liderstvoClick(e)}>
+									<button className={liderstvoColor ? "btn-block active" : "btn-block"} id="Лидерство" onClick={(e) => liderstvoClick(e)}>
 									ЛИДЕРСТВО 
-										<span id="Лидерство">({this.props.liderstvo})</span>
+										<span id="Лидерство">({liderstvo})</span>
 									</button>
-									<button className={this.props.showAll ? "btn-block active" : "btn-block"} 
-									 onClick={(e) => {this.props.allClick(e, this.state)}}>
+									<button className={showAll ? "btn-block active" : "btn-block"} 
+									 onClick={(e) => {allClick(e, this.state)}}>
 									СИТЕ 
-										<span id="site">({this.props.all})</span>
+										<span id="site">({all})</span>
 									</button>
 								</div>
 							</div>
@@ -49,15 +51,15 @@ class Filters extends Component {
 							<h5>Временска рамка</h5>
 							<div className="row">
 								<div className="col-md-6">
-									<button className="btn-block" id="5-30 минути" onClick={(e) => this.props.timeFrameOne(e)}>
+									<button className={timeOneClick ? "btn-block active" : "btn-block"} id="5-30 минути" onClick={(e) => timeFrameOne(e)}>
 									5-30</button>
-									<button className="btn-block" id="60-120 минути" onClick={(e) => this.props.timeFrameThree(e)}>
+									<button className={timeThreeClick ? "btn-block active" : "btn-block"} id="60-120 минути" onClick={(e) => timeFrameThree(e)}>
 									60-120</button>
 								</div>
 								<div className="col-md-6">
-									<button className="btn-block" id="30-60 минути" onClick={(e) => this.props.timeFrameTwo(e)}>
+									<button className={timeTwoClick ? "btn-block active" : "btn-block"} id="30-60 минути" onClick={(e) => timeFrameTwo(e)}>
 									30-60</button>
-									<button className="btn-block" id="120-240 минути" onClick={(e) => this.props.timeFrameFour(e)}>
+									<button className={timeFourClick ? "btn-block active" : "btn-block"} id="120-240 минути" onClick={(e) => timeFrameFour(e)}>
 									120-240</button>
 								</div>
 							</div>
@@ -66,15 +68,15 @@ class Filters extends Component {
 							<h5>Големина на група</h5>
 							<div className="row">
 								<div className="col-md-4">
-									<button className="btn-block" id="2-10" onClick={(e) => this.props.groupOne(e)}>
+									<button className={groupOneClick ? "btn-block active" : "btn-block"} id="2-10" onClick={(e) => groupOne(e)}>
 									2-10</button>
 								</div>
 								<div className="col-md-4">
-									<button className="btn-block" id="10-40" onClick={(e) => this.props.groupTwo(e)}>
+									<button className={groupTwoClick ? "btn-block active" : "btn-block"} id="10-40" onClick={(e) => groupTwo(e)}>
 									10-40</button>
 								</div>
 								<div className="col-md-4">
-									<button className="btn-block" id="2-40+" data-players="10-40+" onClick={(e) => this.props.groupThree(e)}>
+									<button className={groupThreeClick ? "btn-block active" : "btn-block"} id="2-40+" data-players="10-40+" onClick={(e) => groupThree(e)}>
 									40+</button>
 								</div>
 							</div>

@@ -14,7 +14,20 @@ class Games extends Component {
 			time: [],
 			players: []
 		},
-		allClick: true
+		allClick: true,
+		EnergijaClick: false,
+		AkciiClick: false,
+		InovaciiClick: false,
+		TimClick: false,
+		LiderstvoClick: false,
+		timeOneClick: false,
+		timeTwoClick: false,
+		timeThreeClick: false,
+		timeFourClick: false,
+		groupOneClick: false,
+		groupTwoClick: false,
+		groupThreeClick: false,
+
 	}
 
 	async componentDidMount(){
@@ -129,51 +142,72 @@ class Games extends Component {
 	}
 
 	//---------------------------------------- ADD REMOVE CATEGORY FROM STATE LOGIC -------------------------------------------------------------------------
-	addRemoveCategory = (clickedCategory, type, value, e) => {
+	addRemoveCategory = (clickedCategory, type, value, e, colored) => {
+		const {EnergijaClick, InovaciiClick, AkciiClick, LiderstvoClick, TimClick, timeOneClick, timeTwoClick, timeThreeClick, timeFourClick,
+			   groupOneClick, groupTwoClick, groupThreeClick} = this.state;
 		if (this.state.conditions[type].includes(value)) {
-			e.target.classList.remove('active')
+			//e.target.classList.remove('active')
 			var index = this.state.conditions[type].indexOf(value);
 			this.state.conditions[type].splice(index, 1);
 			this.setState({
-				allClick: true
+				[colored]: false
 			})
+			if (EnergijaClick === true && InovaciiClick === true && AkciiClick === true &&
+				LiderstvoClick === true && TimClick === true && timeOneClick === true &&
+				timeTwoClick === true && timeThreeClick === true && timeFourClick === true &&
+				groupOneClick === true && groupTwoClick === true && groupThreeClick === true) {
+				this.setState({
+					allClick: true
+				})
+			}
 		} else {
 			this.state.conditions[type].push(value);
-			e.target.classList.add('active');
+			//e.target.classList.add('active');
 			this.setState({
-				allClick: false
+				[colored]: true
 			})
+			if (EnergijaClick === false && InovaciiClick === false && AkciiClick === false &&
+				LiderstvoClick === false && TimClick === false && timeOneClick === false &&
+				timeTwoClick === false && timeThreeClick === false && timeFourClick === false &&
+				groupOneClick === false && groupTwoClick === false && groupThreeClick === false) {
+				this.setState({
+					allClick: false
+				})
+			}
 		}
-
 		this.mainFilter(clickedCategory, type, value)
 	}
 	
 	energija = (e) => {
-		let value = e.target.id;
+		let value = e.currentTarget.id;
 		let energija = this.state.games.filter(game => game.category === "Енергија")
 		let type = "category";
-		this.addRemoveCategory(energija, type, value, e);
+		let colorClicked = "EnergijaClick";
+		this.addRemoveCategory(energija, type, value, e, colorClicked);
 	}
 
 	akcii = (e) => {
 		let value = e.target.id;
 		let akcii = this.state.games.filter(game => game.category === "Акции");
 		let type = "category";
-		this.addRemoveCategory(akcii, type, value, e);		
+		let colorClicked = "AkciiClick";
+		this.addRemoveCategory(akcii, type, value, e, colorClicked);		
 	}
 
 	inovacii = (e) => {
 		let value = e.target.id;
 		let inovacii = this.state.games.filter(game => game.category === "Иновации");
 		let type = "category";
-		this.addRemoveCategory(inovacii, type, value, e);		
+		let colorClicked = "InovaciiClick";
+		this.addRemoveCategory(inovacii, type, value, e, colorClicked);		
 	}
 
 	tim = (e) => {
 		let value = e.target.id;
 		let tim = this.state.games.filter(game => game.category === "Тим");
 		let type = "category";
-		this.addRemoveCategory(tim, type, value, e);		
+		let colorClicked = "TimClick";
+		this.addRemoveCategory(tim, type, value, e, colorClicked);		
 
 	}
 
@@ -181,7 +215,8 @@ class Games extends Component {
 		let value = e.target.id;
 		let liderstvo = this.state.games.filter(game => game.category === "Лидерство");
 		let type = "category";
-		this.addRemoveCategory(liderstvo, type, value, e);
+		let colorClicked = "LiderstvoClick";
+		this.addRemoveCategory(liderstvo, type, value, e, colorClicked);
 	}
 	
 	all = (e, allClick) => {
@@ -193,24 +228,37 @@ class Games extends Component {
 					time: [],
 					players: []
 				},
-				allClick: !prevState.allClick
+				allClick: !prevState.allClick,
+				EnergijaClick: false,
+				AkciiClick: false,
+				InovaciiClick: false,
+				LiderstvoClick: false,
+				TimClick: false,
+				timeOneClick: false,
+				timeTwoClick: false,
+				timeThreeClick: false,
+				timeFourClick: false,
+				groupOneClick: false,
+				groupTwoClick: false,
+				groupThreeClick: false
 			}
 		})	
-		// allClick.showAll = !allClick.showAll  //od true vo false
 	}
 
 	showTimeFrameOne = (e) => {
 		let value = e.target.id;
 		let timeFrameOne = this.state.games.filter(game => game.time === "5-30 минути");
 		let type = "time";
-		this.addRemoveCategory(timeFrameOne,type, value, e);		
+		let timeClicked = "timeOneClick"
+		this.addRemoveCategory(timeFrameOne,type, value, e, timeClicked);		
 	}
 
 	showTimeFrameTwo = (e) => {
 		let value = e.target.id;
 		let timeFrameTwo = this.state.games.filter(game => game.time === "30-60 минути");
 		let type = "time";
-		this.addRemoveCategory(timeFrameTwo,type, value, e);		
+		let timeClicked = "timeTwoClick"
+		this.addRemoveCategory(timeFrameTwo,type, value, e, timeClicked);		
 		
 	}
 
@@ -218,7 +266,8 @@ class Games extends Component {
 		let value = e.target.id;
 		let timeFrameThree = this.state.games.filter(game => game.time === "60-120 минути");
 		let type = "time";
-		this.addRemoveCategory(timeFrameThree,type, value, e);		
+		let timeClicked = "timeThreeClick";
+		this.addRemoveCategory(timeFrameThree,type, value, e, timeClicked);		
 		
 	}
 
@@ -226,7 +275,8 @@ class Games extends Component {
 		let value = e.target.id;
 		let timeFrameFour = this.state.games.filter(game => game.time === "120-240 минути");
 		let type = "time";
-		this.addRemoveCategory(timeFrameFour,type, value, e);		
+		let timeClicked = "timeFourClick";
+		this.addRemoveCategory(timeFrameFour,type, value, e, timeClicked);		
 		
 	}
 
@@ -234,25 +284,29 @@ class Games extends Component {
 		let groupOne = this.state.games.filter(game => game.players === "2-10");
 		let value = e.target.id;
 		let type = "players";
-		this.addRemoveCategory(groupOne, type, value, e);
+		let groupClicked = "groupOneClick";
+		this.addRemoveCategory(groupOne, type, value, e, groupClicked);
 	}
 
 	showGroupTwo = (e) => {
 		let groupTwo = this.state.games.filter(game => game.players === "10-40");
 		let value = e.target.id;
 		let type = "players";
-		this.addRemoveCategory(groupTwo, type, value, e);
+		let groupClicked = "groupTwoClick";
+		this.addRemoveCategory(groupTwo, type, value, e, groupClicked);
 	}
 
 	showGroupThree = (e) => { // --> ne e dinamicko
 		let groupThree = this.state.games.filter(game => game.players.includes("40+")); // --> ne e dinamicko
 		let value = e.target.id || e.target.dataset.players; // --> ne e dinamicko
 		let type = "players";
-		this.addRemoveCategory(groupThree, type, value, e);
+		let groupClicked = "groupThreeClick";
+		this.addRemoveCategory(groupThree, type, value, e, groupClicked);
 	}
 
 	render() {
-		const {separateGames,games} = this.state;
+		const {separateGames, games , EnergijaClick, AkciiClick, InovaciiClick, TimClick, LiderstvoClick, timeOneClick, timeTwoClick, timeThreeClick, timeFourClick,
+			   groupOneClick, groupTwoClick, groupThreeClick, allClick} = this.state;
 		return (
 			<div className="Games">
 				<div className="container">
@@ -260,24 +314,36 @@ class Games extends Component {
 						<Filters 
 							all={games.length} 
 							energija={games.filter(game => game.category === "Енергија").length}
-							akcii={games.filter(game => game.category === "Акции").length}
-							inovacii={games.filter(game => game.category === "Иновации").length}
-							tim={games.filter(game => game.category === "Тим").length}
-							liderstvo={games.filter(game => game.category === "Лидерство").length}
 							energijaClick = {this.energija}
+							energijaColor = {EnergijaClick}
+							akcii={games.filter(game => game.category === "Акции").length}
 							akciiClick= {this.akcii}
+							akciiColor = {AkciiClick}
+							inovacii={games.filter(game => game.category === "Иновации").length}
 							inovaciiClick={this.inovacii}
+							inovaciiColor = {InovaciiClick}
+							tim={games.filter(game => game.category === "Тим").length}
 							timClick={this.tim}
+							timColor = {TimClick}
+							liderstvo={games.filter(game => game.category === "Лидерство").length}
 							liderstvoClick={this.liderstvo}
+							liderstvoColor = {LiderstvoClick}
 							allClick={this.all}
-							showAll = {this.state.allClick}
+							showAll = {allClick}
 							timeFrameOne={this.showTimeFrameOne}
+							timeOneClick = {timeOneClick}
 							timeFrameTwo={this.showTimeFrameTwo}
+							timeTwoClick = {timeTwoClick}
 							timeFrameThree={this.showTimeFrameThree}
+							timeThreeClick = {timeThreeClick}
 							timeFrameFour={this.showTimeFrameFour}
+							timeFourClick = {timeFourClick}
 							groupOne={this.showGroupOne}
+							groupOneClick = {groupOneClick}
 							groupTwo={this.showGroupTwo}
+							groupTwoClick = {groupTwoClick}
 							groupThree={this.showGroupThree}
+							groupThreeClick = {groupThreeClick}
 						/>
 					</div>
 					<div className="row">
