@@ -38,97 +38,112 @@ class Games extends Component {
 			separateGames: games.data
 		});
 	}
-	
+
+
 	//---------------------------------------- FILTERING LOGIC ------------------------------------------------------------------------------------------
 	mainFilter = (clickedCategory, type, value) => {
-		
+		console.log(clickedCategory[0])
 		const {conditions, games, separateGames} = this.state;
 				
 		//---------------------------------------- CATEGORY LOGIC ------------------------------------------------------------------------------------------
 		if (conditions.category.length > 0) {
+			this.setState({
+				separateGames: games.filter(item =>  conditions.category.includes(item.category))
+			})
 
-		//---------------------------------------- AKO GO NEMA NA PRV KLIK ---------------------------------------------------------------------------------
-			if (conditions.category.includes(clickedCategory[0].category)) {
-				if (conditions.players.length > 0 || conditions.time.length > 0) {
-					this.setState({
-							separateGames: separateGames.filter(item => conditions.category.includes(item.category) && (
-																		conditions.time.includes(item.time) ||
-																		conditions.players.includes(item.players)))
-					})			
-				} else {
-					this.setState({
-							separateGames: games.filter(item => conditions.category.includes(item.category))
-					})	
-				}	
-			}
-		
-		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
-			if (!conditions.category.includes(clickedCategory[0].category)) {
+			if (conditions.players.length > 0) {
 				this.setState({
-						separateGames: games.filter(item => conditions.category.every(condition => condition === item.category) && 
-															conditions.time.every(condition => condition === item.time) &&
-															conditions.players.every(condition => condition === item.players))
+						separateGames: games.filter(item => conditions.category.includes(item.category) &&
+																	conditions.players.includes(item.players))
 				})
+				console.log("prv if vo category za players")				
+			}
+
+			if (conditions.time.length > 0) {
+				this.setState({
+						separateGames: games.filter(item => conditions.category.includes(item.category) &&
+																	conditions.time.includes(item.time))
+				})
+				console.log("prv if vo category za time")
+			}
+
+			if (conditions.time.length > 0 && conditions.players.length > 0) {
+				this.setState({
+						separateGames: games.filter(item => conditions.category.includes(item.category) &&
+																	conditions.players.includes(item.players) &&
+																	conditions.time.includes(item.time))
+					})	
+				console.log("tret if vo category za dvete")
 			}
 		}
 				
 		//----------------------------------------- TIME LOGIC ------------------------------------------------------------------------------------------------
 		if (conditions.time.length > 0) {
-		
-		//---------------------------------------- AKO GO NEMA NA PRV KLIK ---------------------------------------------------------------------------------
-			
-			if (conditions.time.includes(clickedCategory[0].time)) {
-				if (conditions.players.length > 0 || conditions.category.length > 0) {
-					this.setState({
-							separateGames: separateGames.filter(item => conditions.time.includes(item.time) && (
-																		conditions.category.includes(item.category) ||
-																		conditions.players.includes(item.players)))
-					})		
-				} else {
-					this.setState({
+			this.setState({
 							separateGames: games.filter(item => conditions.time.includes(item.time))
-					})	
-				}	
-												
-			}
-		
-		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
-			if (!conditions.time.includes(clickedCategory[0].time)) {
+					})
+			
+			if (conditions.players.length > 0) {
 				this.setState({
-						separateGames: games.filter(item => conditions.time.every(condition => condition === item.time) && (
-															conditions.category.every(condition => condition === item.category) ||
-															conditions.players.every(condition => condition === item.players)))
-				})
+					separateGames: separateGames.filter(item => conditions.time.includes(item.time) &&
+																conditions.players.includes(item.players))
+				})	
+				console.log("prv if vo time za players")	
 			}
+			if (conditions.category.length > 0) {
+				this.setState({
+					separateGames: games.filter(item => conditions.time.includes(item.time) &&
+																conditions.category.includes(item.category))
+				})	
+				console.log("prv if vo time za category")
+			}
+
+			if (conditions.category.length > 0 && conditions.players.length > 0) {
+				this.setState({
+						separateGames: games.filter(item => conditions.category.includes(item.category) &&
+																	conditions.players.includes(item.players) &&
+																	conditions.time.includes(item.time))
+					})	
+				console.log("tret if vo time za dvete")
+			}	
+												
 		}
 				
+
 		//---------------------------------------- PLAYERS LOGIC --------------------------------------------------------------------------------------------
 		if (conditions.players.length > 0) {
-		
-		//---------------------------------------- AKO GO NEMA NA PRV KLIK ----------------------------------------------------------------------------------
-			if (conditions.players.includes(clickedCategory[0].players)) {
-				if (conditions.time.length > 0 || conditions.category.length > 0) {
-					this.setState({
-							separateGames: separateGames.filter(item => conditions.players.includes(item.players) && (
-																		conditions.category.includes(item.category) ||
-																		conditions.time.includes(item.time)))
-					})	
-				} else {
-					this.setState({
-							separateGames: games.filter(item => conditions.players.includes(item.players))
-					})
-				}					
-			}
-		//---------------------------------------- AKO GO IMA NA PRV KLIK -----------------------------------------------------------------------------------
-			
-			if (!conditions.players.includes(clickedCategory[0].players)) {
+			this.setState({
+				separateGames: games.filter(item => conditions.players.includes(item.players))
+			})
+
+			if (conditions.time.length > 0) {
+				
 				this.setState({
-						separateGames: games.filter(item => conditions.players.every(condition => condition === item.players) && 
-															conditions.time.every(condition => condition === item.time) &&
-															conditions.category.every(condition => condition === item.category))
-				})
-			}
+						separateGames: games.filter(item => conditions.players.includes(item.players) &&
+																	conditions.time.includes(item.time))
+					})	
+				console.log("prv if vo players za time")
+			} 	
+
+			if (conditions.category.length > 0) {
+				this.setState({
+						separateGames: games.filter(item => conditions.category.includes(item.category) &&
+																	conditions.players.includes(item.players))
+					})	
+				console.log("prv if vo players za category")
+			}	
+
+			if (conditions.category.length > 0 && conditions.time.length > 0) {
+				this.setState({
+						separateGames: games.filter(item => conditions.category.includes(item.category) &&
+																	conditions.players.includes(item.players) &&
+																	conditions.time.includes(item.time))
+					})	
+				console.log("tret if vo players za dvete")
+			}			
 		}
+			 
+
 
 		//---------------------------------------- AKO SITE SE PRAZNI ---------------------------------------------------------------------------------------	
 
