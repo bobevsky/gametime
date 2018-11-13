@@ -43,7 +43,7 @@ class Games extends Component {
 	//---------------------------------------- FILTERING LOGIC ------------------------------------------------------------------------------------------
 	mainFilter = (clickedCategory, type, value) => {
 		console.log(clickedCategory[0])
-		const {conditions, games, separateGames} = this.state;
+		const {conditions, games} = this.state;
 				
 		//---------------------------------------- CATEGORY LOGIC ------------------------------------------------------------------------------------------
 		if (conditions.category.length > 0) {
