@@ -315,11 +315,12 @@
 		span
 			color: #8a7d7db5
 			font-weight: normal
-		&:hover
-			background-color: #562894d4
-			color: white
-			span
+		@media not all and (pointer: coarse) 
+			&:hover
+				background-color: #562894d4
 				color: white
+				span
+					color: white
 	.active 
 		background-color: #562894
 		color: white
@@ -419,6 +420,11 @@
 	.Filters 
 		button
 			font-size: 11px
+		.active 
+			background-color: #562894
+			color: white
+			span
+				color: white	
 	.row:nth-child(1) 
 		.col-md-4:nth-child(1)
 			padding-left: 12px
@@ -473,6 +479,7 @@
 		ul
 			padding-left: 0
 			margin-top: 25px
+
 
 @media screen and (max-width: 768px)
 	.button-up,
@@ -534,18 +541,6 @@
 			button
 				background-color: white
 				color: #615c5c
-	.Filters 
-		button
-			&:hover
-				background-color: white
-				color: #562894
-				span
-					color: #562894
-			&:focus 
-				background-color: #562894d4
-				color: white
-				span
-					color: white
 			
 // ---------------------------------- MEDIA-MOBILE-L-STYLES --------------------------------------------------------
 @media screen and (max-width: 425px)
