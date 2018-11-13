@@ -48,10 +48,10 @@ class Gamepage extends Component {
 	                <title>{title}</title>
 	                <meta property="og:title" content={title} />
 					<meta name="og:description" content={description} />
-					<meta property="og:image" content="" />
+					<meta property="og:image" content= {`Images/${image}.png`} />
 					<meta property="og:type" content="article" /> 
 					<meta name="author" content="Kristijan Bobevski" />
-					<meta name="og:url" content={`https://json-project3.herokuapp.com/posts/${image}`} />
+					<meta name="og:url" content={`https://bobevsky.github.io/gametime/#/game/${image}`} />
 	            </Helmet>
 					<div className="row">
 						<div className="col-md-4 col-sm-4 col-xs-4">
