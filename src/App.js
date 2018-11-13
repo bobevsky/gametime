@@ -51,7 +51,7 @@ class App extends Component {
               <meta property="og:title" content="BrainsterBox" />
               <meta property="og:description" content="Вашата лична кутија со ресурси и алатки за креативна колаборација и 
               откривање на потенцијалот во твојот тим или организација." />
-              <meta property="og:image" content="https://toolbox.hyperisland.com/images/fb-og.png" />
+              <meta property="og:image" content="http://toolbox.hyperisland.com/images/fb-og.png" />
               <meta property="og:type" content="article" /> 
               <meta name="author" content="Kristijan Bobevski" />
               <meta property="og:url" content="https://bobevsky.github.io/gametime" />
