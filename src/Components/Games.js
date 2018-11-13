@@ -85,7 +85,7 @@ class Games extends Component {
 			
 			if (conditions.players.length > 0) {
 				this.setState({
-					separateGames: separateGames.filter(item => conditions.time.includes(item.time) &&
+					separateGames: games.filter(item => conditions.time.includes(item.time) &&
 																conditions.players.includes(item.players))
 				})	
 				// console.log("prv if vo time za players")	
