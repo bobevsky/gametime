@@ -55,6 +55,7 @@ class App extends Component {
               <meta property="og:type" content="article" /> 
               <meta name="author" content="Kristijan Bobevski" />
               <meta name="og:url" content="https://bobevsky.github.io/gametime" />
+              <meta name="base_url" content="https://bobevsky.github.io/gametime" />
             </Helmet>
             <Navbar fixed={this.toggleFixed} clearState={this.clearState}/>
               <Switch>
