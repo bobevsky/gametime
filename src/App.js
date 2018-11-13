@@ -49,12 +49,12 @@ class App extends Component {
             <Helmet>
               <title>BrainsterBox</title>
               <meta property="og:title" content="BrainsterBox" />
-              <meta name="og:description" content="Вашата лична кутија со ресурси и алатки за креативна колаборација и 
+              <meta property="og:description" content="Вашата лична кутија со ресурси и алатки за креативна колаборација и 
               откривање на потенцијалот во твојот тим или организација." />
               <meta property="og:image" content="https://toolbox.hyperisland.com/images/fb-og.png" />
               <meta property="og:type" content="article" /> 
               <meta name="author" content="Kristijan Bobevski" />
-              <meta name="og:url" content="https://bobevsky.github.io/gametime" />
+              <meta property="og:url" content="https://bobevsky.github.io/gametime" />
               <meta name="base_url" content="https://bobevsky.github.io/gametime" />
             </Helmet>
             <Navbar fixed={this.toggleFixed} clearState={this.clearState}/>

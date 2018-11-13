@@ -47,11 +47,11 @@ class Gamepage extends Component {
 				<Helmet>
 	                <title>{title}</title>
 	                <meta property="og:title" content={title} />
-					<meta name="og:description" content={description} />
+					<meta property="og:description" content={description} />
 					<meta property="og:image" content= {`Images/${image}.png`} />
 					<meta property="og:type" content="article" /> 
 					<meta name="author" content="Kristijan Bobevski" />
-					<meta name="og:url" content={`https://bobevsky.github.io/gametime/#/game/${image}`} />
+					<meta property="og:url" content={`https://bobevsky.github.io/gametime/#/game/${image}`} />
 					<meta name="base_url" content={`https://bobevsky.github.io/gametime/#/game/${image}`} />
 	            </Helmet>
 					<div className="row">
