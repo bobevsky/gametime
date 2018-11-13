@@ -53,58 +53,58 @@ class Games extends Component {
 
 			if (conditions.players.length > 0) {
 				this.setState({
-						separateGames: games.filter(item => conditions.category.includes(item.category) &&
-																	conditions.players.includes(item.players))
+					separateGames: games.filter(item => conditions.category.includes(item.category) &&
+														conditions.players.includes(item.players))
 				})
-				console.log("prv if vo category za players")				
+				// console.log("prv if vo category za players")				
 			}
 
 			if (conditions.time.length > 0) {
 				this.setState({
-						separateGames: games.filter(item => conditions.category.includes(item.category) &&
-																	conditions.time.includes(item.time))
+					separateGames: games.filter(item => conditions.category.includes(item.category) &&
+														conditions.time.includes(item.time))
 				})
-				console.log("prv if vo category za time")
+				// console.log("prv if vo category za time")
 			}
 
 			if (conditions.time.length > 0 && conditions.players.length > 0) {
 				this.setState({
-						separateGames: games.filter(item => conditions.category.includes(item.category) &&
-																	conditions.players.includes(item.players) &&
-																	conditions.time.includes(item.time))
+					separateGames: games.filter(item => conditions.category.includes(item.category) &&
+														conditions.players.includes(item.players) &&
+														conditions.time.includes(item.time))
 					})	
-				console.log("tret if vo category za dvete")
+				// console.log("tret if vo category za dvete")
 			}
 		}
 				
 		//----------------------------------------- TIME LOGIC ------------------------------------------------------------------------------------------------
 		if (conditions.time.length > 0) {
 			this.setState({
-							separateGames: games.filter(item => conditions.time.includes(item.time))
-					})
+				separateGames: games.filter(item => conditions.time.includes(item.time))
+			})
 			
 			if (conditions.players.length > 0) {
 				this.setState({
 					separateGames: separateGames.filter(item => conditions.time.includes(item.time) &&
 																conditions.players.includes(item.players))
 				})	
-				console.log("prv if vo time za players")	
+				// console.log("prv if vo time za players")	
 			}
 			if (conditions.category.length > 0) {
 				this.setState({
 					separateGames: games.filter(item => conditions.time.includes(item.time) &&
-																conditions.category.includes(item.category))
+														conditions.category.includes(item.category))
 				})	
-				console.log("prv if vo time za category")
+				// console.log("prv if vo time za category")
 			}
 
 			if (conditions.category.length > 0 && conditions.players.length > 0) {
 				this.setState({
-						separateGames: games.filter(item => conditions.category.includes(item.category) &&
-																	conditions.players.includes(item.players) &&
-																	conditions.time.includes(item.time))
+					separateGames: games.filter(item => conditions.category.includes(item.category) &&
+														conditions.players.includes(item.players) &&
+														conditions.time.includes(item.time))
 					})	
-				console.log("tret if vo time za dvete")
+				// console.log("tret if vo time za dvete")
 			}	
 												
 		}
@@ -117,29 +117,28 @@ class Games extends Component {
 			})
 
 			if (conditions.time.length > 0) {
-				
 				this.setState({
 						separateGames: games.filter(item => conditions.players.includes(item.players) &&
-																	conditions.time.includes(item.time))
+															conditions.time.includes(item.time))
 					})	
-				console.log("prv if vo players za time")
+				// console.log("prv if vo players za time")
 			} 	
 
 			if (conditions.category.length > 0) {
 				this.setState({
 						separateGames: games.filter(item => conditions.category.includes(item.category) &&
-																	conditions.players.includes(item.players))
+															conditions.players.includes(item.players))
 					})	
-				console.log("prv if vo players za category")
+				// console.log("prv if vo players za category")
 			}	
 
 			if (conditions.category.length > 0 && conditions.time.length > 0) {
 				this.setState({
 						separateGames: games.filter(item => conditions.category.includes(item.category) &&
-																	conditions.players.includes(item.players) &&
-																	conditions.time.includes(item.time))
+															conditions.players.includes(item.players) &&
+															conditions.time.includes(item.time))
 					})	
-				console.log("tret if vo players za dvete")
+				// console.log("tret if vo players za dvete")
 			}			
 		}
 			 
