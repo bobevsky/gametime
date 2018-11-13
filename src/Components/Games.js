@@ -141,8 +141,6 @@ class Games extends Component {
 				// console.log("tret if vo players za dvete")
 			}			
 		}
-			 
-
 
 		//---------------------------------------- AKO SITE SE PRAZNI ---------------------------------------------------------------------------------------	
 
@@ -159,6 +157,7 @@ class Games extends Component {
 	addRemoveCategory = (type, value, colored) => {
 		const {EnergijaClick, InovaciiClick, AkciiClick, LiderstvoClick, TimClick, timeOneClick, timeTwoClick, timeThreeClick, timeFourClick,
 			   groupOneClick, groupTwoClick, groupThreeClick} = this.state;
+
 		if (this.state.conditions[type].includes(value)) {
 			var index = this.state.conditions[type].indexOf(value);
 			this.state.conditions[type].splice(index, 1);
@@ -224,37 +223,37 @@ class Games extends Component {
 				<div className="container">
 					<div className="row">
 						<Filters 
-							all={games.length} 
-							energija={games.filter(game => game.category === "Енергија").length}
+							all = {games.length} 
+							energija = {games.filter(game => game.category === "Енергија").length}
 							energijaClick = {(e) => {this.addRemoveCategory("category", e.target.id, "EnergijaClick")}}
 							energijaColor = {EnergijaClick}
-							akcii={games.filter(game => game.category === "Акции").length}
+							akcii = {games.filter(game => game.category === "Акции").length}
 							akciiClick= {(e) => {this.addRemoveCategory("category", e.target.id, "AkciiClick")}}
 							akciiColor = {AkciiClick}
-							inovacii={games.filter(game => game.category === "Иновации").length}
-							inovaciiClick= {(e) => {this.addRemoveCategory("category", e.target.id, "InovaciiClick")}}
+							inovacii = {games.filter(game => game.category === "Иновации").length}
+							inovaciiClick = {(e) => {this.addRemoveCategory("category", e.target.id, "InovaciiClick")}}
 							inovaciiColor = {InovaciiClick}
-							tim={games.filter(game => game.category === "Тим").length}
-							timClick= {(e) => {this.addRemoveCategory("category", e.target.id, "TimClick")}}
+							tim = {games.filter(game => game.category === "Тим").length}
+							timClick = {(e) => {this.addRemoveCategory("category", e.target.id, "TimClick")}}
 							timColor = {TimClick}
-							liderstvo={games.filter(game => game.category === "Лидерство").length}
-							liderstvoClick= {(e) => {this.addRemoveCategory("category", e.target.id, "LiderstvoClick")}}
+							liderstvo = {games.filter(game => game.category === "Лидерство").length}
+							liderstvoClick = {(e) => {this.addRemoveCategory("category", e.target.id, "LiderstvoClick")}}
 							liderstvoColor = {LiderstvoClick}
-							allClick={this.all}
+							allClick= {this.all}
 							showAll = {allClick}
 							timeFrameOne= {(e) => {this.addRemoveCategory("time", e.target.id, "timeOneClick")}}
 							timeOneClick = {timeOneClick}
-							timeFrameTwo= {(e) => {this.addRemoveCategory("time", e.target.id, "timeTwoClick")}}
+							timeFrameTwo = {(e) => {this.addRemoveCategory("time", e.target.id, "timeTwoClick")}}
 							timeTwoClick = {timeTwoClick}
-							timeFrameThree= {(e) => {this.addRemoveCategory("time", e.target.id, "timeThreeClick")}}
+							timeFrameThree = {(e) => {this.addRemoveCategory("time", e.target.id, "timeThreeClick")}}
 							timeThreeClick = {timeThreeClick}
-							timeFrameFour= {(e) => {this.addRemoveCategory("time", e.target.id, "timeFourClick")}}
+							timeFrameFour = {(e) => {this.addRemoveCategory("time", e.target.id, "timeFourClick")}}
 							timeFourClick = {timeFourClick}
-							groupOne= {(e) => {this.addRemoveCategory("players", e.target.id, "groupOneClick")}}
+							groupOne = {(e) => {this.addRemoveCategory("players", e.target.id, "groupOneClick")}}
 							groupOneClick = {groupOneClick}
-							groupTwo= {(e) => {this.addRemoveCategory("players", e.target.id, "groupTwoClick")}}
+							groupTwo = {(e) => {this.addRemoveCategory("players", e.target.id, "groupTwoClick")}}
 							groupTwoClick = {groupTwoClick}
-							groupThree= {(e) => {this.addRemoveCategory("players", e.target.id || e.target.dataset.players, "groupThreeClick")}}
+							groupThree = {(e) => {this.addRemoveCategory("players", e.target.id || e.target.dataset.players, "groupThreeClick")}}
 							groupThreeClick = {groupThreeClick}
 						/>
 					</div>
