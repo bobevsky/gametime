@@ -41,7 +41,7 @@ class Games extends Component {
 
 
 	//---------------------------------------- FILTERING LOGIC ------------------------------------------------------------------------------------------
-	mainFilter = (clickedCategory, type, value) => {
+	mainFilter = () => {
 
 		const {conditions, games} = this.state;
 				
@@ -86,7 +86,7 @@ class Games extends Component {
 			if (conditions.players.length > 0) {
 				this.setState({
 					separateGames: games.filter(item => conditions.time.includes(item.time) &&
-																conditions.players.includes(item.players))
+														conditions.players.includes(item.players))
 				})	
 				// console.log("prv if vo time za players")	
 			}
@@ -156,11 +156,10 @@ class Games extends Component {
 	}
 
 	//---------------------------------------- ADD REMOVE CATEGORY FROM STATE LOGIC -------------------------------------------------------------------------
-	addRemoveCategory = (clickedCategory, type, value, e, colored) => {
+	addRemoveCategory = (type, value, colored) => {
 		const {EnergijaClick, InovaciiClick, AkciiClick, LiderstvoClick, TimClick, timeOneClick, timeTwoClick, timeThreeClick, timeFourClick,
 			   groupOneClick, groupTwoClick, groupThreeClick} = this.state;
 		if (this.state.conditions[type].includes(value)) {
-			//e.target.classList.remove('active')
 			var index = this.state.conditions[type].indexOf(value);
 			this.state.conditions[type].splice(index, 1);
 			this.setState({
@@ -176,7 +175,6 @@ class Games extends Component {
 			}
 		} else {
 			this.state.conditions[type].push(value);
-			//e.target.classList.add('active');
 			this.setState({
 				[colored]: true
 			})
@@ -189,51 +187,51 @@ class Games extends Component {
 				})
 			}
 		}
-		this.mainFilter(clickedCategory, type, value)
+		this.mainFilter();
 	}
 	
 	energija = (e) => {
 		let value = e.currentTarget.id;
-		let energija = this.state.games.filter(game => game.category === "Енергија")
+		// let energija = this.state.games.filter(game => game.category === "Енергија");
 		let type = "category";
 		let colorClicked = "EnergijaClick";
-		this.addRemoveCategory(energija, type, value, e, colorClicked);
+		this.addRemoveCategory(type, value, colorClicked);
 	}
 
 	akcii = (e) => {
 		let value = e.target.id;
-		let akcii = this.state.games.filter(game => game.category === "Акции");
+		// let akcii = this.state.games.filter(game => game.category === "Акции");
 		let type = "category";
 		let colorClicked = "AkciiClick";
-		this.addRemoveCategory(akcii, type, value, e, colorClicked);		
+		this.addRemoveCategory(type, value, colorClicked);		
 	}
 
 	inovacii = (e) => {
 		let value = e.target.id;
-		let inovacii = this.state.games.filter(game => game.category === "Иновации");
+		// let inovacii = this.state.games.filter(game => game.category === "Иновации");
 		let type = "category";
 		let colorClicked = "InovaciiClick";
-		this.addRemoveCategory(inovacii, type, value, e, colorClicked);		
+		this.addRemoveCategory(type, value, colorClicked);		
 	}
 
 	tim = (e) => {
 		let value = e.target.id;
-		let tim = this.state.games.filter(game => game.category === "Тим");
+		// let tim = this.state.games.filter(game => game.category === "Тим");
 		let type = "category";
 		let colorClicked = "TimClick";
-		this.addRemoveCategory(tim, type, value, e, colorClicked);		
+		this.addRemoveCategory(type, value, colorClicked);		
 
 	}
 
 	liderstvo = (e) => {
 		let value = e.target.id;
-		let liderstvo = this.state.games.filter(game => game.category === "Лидерство");
+		// let liderstvo = this.state.games.filter(game => game.category === "Лидерство");
 		let type = "category";
 		let colorClicked = "LiderstvoClick";
-		this.addRemoveCategory(liderstvo, type, value, e, colorClicked);
+		this.addRemoveCategory(type, value, colorClicked);
 	}
 	
-	all = (e, allClick) => {
+	all = () => {
 		this.setState(prevState => {
 			return {
 				separateGames: this.state.games,
@@ -261,61 +259,61 @@ class Games extends Component {
 
 	showTimeFrameOne = (e) => {
 		let value = e.target.id;
-		let timeFrameOne = this.state.games.filter(game => game.time === "5-30 минути");
+		// let timeFrameOne = this.state.games.filter(game => game.time === "5-30 минути");
 		let type = "time";
-		let timeClicked = "timeOneClick"
-		this.addRemoveCategory(timeFrameOne,type, value, e, timeClicked);		
+		let timeClicked = "timeOneClick";
+		this.addRemoveCategory(type, value, timeClicked);		
 	}
 
 	showTimeFrameTwo = (e) => {
 		let value = e.target.id;
-		let timeFrameTwo = this.state.games.filter(game => game.time === "30-60 минути");
+		// let timeFrameTwo = this.state.games.filter(game => game.time === "30-60 минути");
 		let type = "time";
-		let timeClicked = "timeTwoClick"
-		this.addRemoveCategory(timeFrameTwo,type, value, e, timeClicked);		
+		let timeClicked = "timeTwoClick";
+		this.addRemoveCategory(type, value, timeClicked);		
 		
 	}
 
 	showTimeFrameThree = (e) => {
 		let value = e.target.id;
-		let timeFrameThree = this.state.games.filter(game => game.time === "60-120 минути");
+		// let timeFrameThree = this.state.games.filter(game => game.time === "60-120 минути");
 		let type = "time";
 		let timeClicked = "timeThreeClick";
-		this.addRemoveCategory(timeFrameThree,type, value, e, timeClicked);		
+		this.addRemoveCategory(type, value, timeClicked);		
 		
 	}
 
 	showTimeFrameFour = (e) => {
 		let value = e.target.id;
-		let timeFrameFour = this.state.games.filter(game => game.time === "120-240 минути");
+		// let timeFrameFour = this.state.games.filter(game => game.time === "120-240 минути");
 		let type = "time";
 		let timeClicked = "timeFourClick";
-		this.addRemoveCategory(timeFrameFour,type, value, e, timeClicked);		
+		this.addRemoveCategory(type, value, timeClicked);		
 		
 	}
 
 	showGroupOne = (e) => {
-		let groupOne = this.state.games.filter(game => game.players === "2-10");
+		// let groupOne = this.state.games.filter(game => game.players === "2-10");
 		let value = e.target.id;
 		let type = "players";
 		let groupClicked = "groupOneClick";
-		this.addRemoveCategory(groupOne, type, value, e, groupClicked);
+		this.addRemoveCategory(type, value, groupClicked);
 	}
 
 	showGroupTwo = (e) => {
-		let groupTwo = this.state.games.filter(game => game.players === "10-40");
+		// let groupTwo = this.state.games.filter(game => game.players === "10-40");
 		let value = e.target.id;
 		let type = "players";
 		let groupClicked = "groupTwoClick";
-		this.addRemoveCategory(groupTwo, type, value, e, groupClicked);
+		this.addRemoveCategory(type, value, groupClicked);
 	}
 
 	showGroupThree = (e) => { // --> ne e dinamicko
-		let groupThree = this.state.games.filter(game => game.players.includes("40+")); // --> ne e dinamicko
+		// let groupThree = this.state.games.filter(game => game.players.includes("40+")); // --> ne e dinamicko
 		let value = e.target.id || e.target.dataset.players; // --> ne e dinamicko
 		let type = "players";
 		let groupClicked = "groupThreeClick";
-		this.addRemoveCategory(groupThree, type, value, e, groupClicked);
+		this.addRemoveCategory(type, value, groupClicked);
 	}
 
 	render() {

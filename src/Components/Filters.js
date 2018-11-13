@@ -40,7 +40,7 @@ class Filters extends Component {
 										<span id="Лидерство">({liderstvo})</span>
 									</button>
 									<button className={showAll ? "btn-block active" : "btn-block"} 
-									 onClick={(e) => {allClick(e, this.state)}}>
+									 onClick={allClick}>
 									СИТЕ 
 										<span id="site">({all})</span>
 									</button>
