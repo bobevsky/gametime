@@ -14,21 +14,21 @@ class Gamepage extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get(`https://json-project3.herokuapp.com/posts/${this.props.match.params.id}`);
+		let games = await axios.get(`https://json-project3-server.herokuapp.com/posts/${this.props.match.params.id}`);
 		this.setState({
 			games: games.data,
 			steps: games.data.steps,
-			images: games.data.stepsImages
+			images: games.data.steps.stepImg
 		})
 	}
 	
 	async componentDidUpdate(prevProps){
 		if (this.props.location !== prevProps.location) {
-			let games = await axios.get(`https://json-project3.herokuapp.com/posts/${this.props.match.params.id}`);
+			let games = await axios.get(`https://json-project3-server.herokuapp.com/posts/${this.props.match.params.id}`);
 			this.setState({
 				games: games.data,
 				steps: games.data.steps,
-				images: games.data.stepsImages
+				images: games.data.steps.stepImg
 			})
 		} 		
 	}
@@ -122,33 +122,37 @@ class Gamepage extends Component {
 					<div className="row">
 						<div className="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
 							<div className="row">
-								<div className="col-md-8">
-									{this.state.steps.map((step,i) => {
+								<div className="col-md-12">
+										{this.state.steps.map((step,i) => {
 										const {text} = step;
+										const style = {
+											backgroundImage: `url(StepsImages/${step.stepImg}.png)`,
+											backgroundPosition: "center",
+											backgroundSize: "contain",
+											backgroundRepeat: "no-repeat",
+											height: "100px",
+											marginTop: "20px"
+										}
 										return(
-											<div key={i}>
-												<h3>{step.step}</h3>
-												{text.split("\n").map(line => (
-												    <span key={uuid()}>
-												      {line}
-												      <br />
-												      <br />
-												    </span>
-												))}
+											<div key={i} className="row">
+												<div className="col-md-9">
+													<h3>{step.step}</h3>
+													{text.split("\n").map(line => (
+													    <span key={uuid()}>
+													      {line}
+													      <br />
+													      <br />
+													    </span>
+													))}
 												<hr/>
+												</div>
+												<div className="col-md-3" style={style}>
+													
+												</div>
 											</div>
 										)
 									})}
 								</div>
-								{
-								// <div className="col-md-4">
-								// 	{this.state.images.map((image,i) => {
-								// 		const style = {
-								// 			// backgroundImage: `url("${image}.png")`
-								// 		}
-								// 		return (<div style={style} key={i}></div>)})}
-								// </div>
-								}
 							</div>
 						</div>
 					</div>

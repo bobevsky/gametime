@@ -31,7 +31,7 @@ class Games extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("https://json-project3.herokuapp.com/posts");
+		let games = await axios.get("https://json-project3-server.herokuapp.com/posts");
 
 		this.setState({
 			games: games.data,
