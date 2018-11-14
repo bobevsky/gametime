@@ -9,16 +9,14 @@ import {Helmet} from "react-helmet";
 class Gamepage extends Component {
 	state = {
 		games: [],
-		steps: [],
-		images: []
+		steps: []
 	}
 
 	async componentDidMount(){
 		let games = await axios.get(`https://json-project3-server.herokuapp.com/posts/${this.props.match.params.id}`);
 		this.setState({
 			games: games.data,
-			steps: games.data.steps,
-			images: games.data.steps.stepImg
+			steps: games.data.steps
 		})
 	}
 	
