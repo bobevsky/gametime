@@ -125,17 +125,9 @@ class Gamepage extends Component {
 								<div className="col-md-12">
 										{this.state.steps.map((step,i) => {
 										const {text} = step;
-										const style = {
-											backgroundImage: `url(StepsImages/${step.stepImg}.png)`,
-											backgroundPosition: "center",
-											backgroundSize: "contain",
-											backgroundRepeat: "no-repeat",
-											height: "100px",
-											marginTop: "20px"
-										}
 										return(
 											<div key={i} className="row">
-												<div className="col-md-9">
+												<div className="col-md-9 col-sm-8">
 													<h3>{step.step}</h3>
 													{text.split("\n").map(line => (
 													    <span key={uuid()}>
@@ -144,10 +136,11 @@ class Gamepage extends Component {
 													      <br />
 													    </span>
 													))}
-												<hr/>
+												<hr className="hidden-xs"/>
 												</div>
-												<div className="col-md-3" style={style}>
-													
+												<div className="col-md-3 col-sm-4 col-xs-12 text-center">
+													<img src={`StepsImages/${step.stepImg}.png`} alt="" className="stepImg"/>
+													<hr className="hidden-lg hidden-md hidden-sm"/>
 												</div>
 											</div>
 										)
