@@ -136,12 +136,12 @@ class Gamepage extends Component {
 													      <br />
 													    </span>
 													))}
-												<hr className="hidden-xs"/>
+												<hr className={step.stepImg !== "" ? "hidden-xs" : ""}/>
 												</div>
-												<div className="col-md-3 col-sm-4 col-xs-12 text-center">
+												{step.stepImg !== "" ? <div className="col-md-3 col-sm-4 col-xs-12 text-center">
 													<img src={`StepsImages/${step.stepImg}.png`} alt="" className="stepImg"/>
 													<hr className="hidden-lg hidden-md hidden-sm"/>
-												</div>
+												</div> : null}
 											</div>
 										)
 									})}
