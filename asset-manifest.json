@@ -1,7 +1,7 @@
 {
-  "main.css": "/gametime/static/css/main.1a101219.chunk.css",
-  "main.js": "/gametime/static/js/main.6b8850f7.chunk.js",
-  "main.js.map": "/gametime/static/js/main.6b8850f7.chunk.js.map",
+  "main.css": "/gametime/static/css/main.67591017.chunk.css",
+  "main.js": "/gametime/static/js/main.d8aa74c4.chunk.js",
+  "main.js.map": "/gametime/static/js/main.d8aa74c4.chunk.js.map",
   "static/js/1.0768879d.chunk.js": "/gametime/static/js/1.0768879d.chunk.js",
   "static/js/1.0768879d.chunk.js.map": "/gametime/static/js/1.0768879d.chunk.js.map",
   "runtime~main.js": "/gametime/static/js/runtime~main.517e8416.js",
@@ -13,8 +13,8 @@
   "static/media/instagram.png": "/gametime/static/media/instagram.6a9fb2ed.png",
   "static/media/twitter.png": "/gametime/static/media/twitter.9a513524.png",
   "static/media/02.png": "/gametime/static/media/02.aa1ba4eb.png",
-  "static/css/main.1a101219.chunk.css.map": "/gametime/static/css/main.1a101219.chunk.css.map",
+  "static/css/main.67591017.chunk.css.map": "/gametime/static/css/main.67591017.chunk.css.map",
   "index.html": "/gametime/index.html",
-  "precache-manifest.21243ecc2bf359a95eb21c0e07e0b074.js": "/gametime/precache-manifest.21243ecc2bf359a95eb21c0e07e0b074.js",
+  "precache-manifest.718ef31424516396b7a1db93142e7a73.js": "/gametime/precache-manifest.718ef31424516396b7a1db93142e7a73.js",
   "service-worker.js": "/gametime/service-worker.js"
 }
