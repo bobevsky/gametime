@@ -47,7 +47,7 @@ class Navbar extends Component {
 							<Link to="/"><img src={Logo} alt="Logo" className="img img-responsive"/></Link>
 						</div>
 						<div className="col-md-2 col-md-offset-8 col-sm-2 col-sm-offset-7 col-xs-2 col-xs-offset-5">
-							<span className="nav-questionmark" onClick={this.toggleHeader}>?</span>
+							<span className={this.state.active ? "nav-questionmark question-after" : "nav-questionmark"} onClick={this.toggleHeader}>?</span>
 							<h4 className="navbar-h4 hidden-xs">МЕНИ</h4>
 							{
 								this.state.menu ?

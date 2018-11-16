@@ -65,6 +65,18 @@
 		margin-right: 5px
 		cursor: pointer
 		margin-left: 43px
+	.question-after::after
+		    border: solid transparent
+		    content: " "
+		    height: 0
+		    width: 0
+		    position: absolute
+		    pointer-events: none
+		    border-color: rgba(86, 40, 148, 0)
+		    border-bottom-color: #562894
+		    border-width: 10px
+    		margin-top: 26px
+    		margin-left: -13px
 	.hamburger,
 	.close-btn
 		font-size: 20px
@@ -93,20 +105,7 @@
 	color: white
 	margin-bottom: 10px
 	.container 
-		background-color: #562894
-		&::after
-		    left: 50%
-		    border: solid transparent
-		    content: " "
-		    height: 0
-		    width: 0
-		    position: absolute
-		    pointer-events: none
-		    border-color: rgba(86, 40, 148, 0)
-		    border-bottom-color: #562894
-		    border-width: 10px
-		    margin-left: 451px
-    		bottom: 90%
+		background-color: #562894		    
 	.row
 		width: 100%
 	.pl-0 
@@ -121,7 +120,7 @@
 			width: 55%	
 		h4 
 			color: #b091c5
-			font-size: 14px
+			font-size: 13px
 			margin-top: 40px
 			line-height: 1.3
 			letter-spacing: 0.5px
@@ -144,7 +143,7 @@
 			width: 88%	
 		h4 
 			color: #b091c5
-			font-size: 13.5px
+			font-size: 13px
 			margin-top: 40px
 			line-height: 1.3
 			margin-bottom: 20px
@@ -232,7 +231,8 @@
 		color: #615c5c
 		font-weight: 500
 		border: 1px solid #eee
-		padding: 15px 50px
+		padding: 15px 0px
+		width: 100%
 		margin: 0 auto
 		font-size: 11px
 		text-decoration: none
@@ -420,6 +420,126 @@
 		font-size: 2.5em
 
 // ---------------------------------- MEDIA-STYLES ----------------------------------------------------------
+@media screen and (max-width: 2560px) 
+	.Navbar
+		.NavbarMenu
+			height: 100vh
+	.Footer 
+		.col-md-4:nth-child(1)
+			p
+    			width: 100%
+		.col-md-4:nth-child(2)
+			p
+    			width: 100%
+		img
+    		width: 1.7%
+
+
+@media screen and (max-width: 1965px)
+	.Footer
+		h2
+			font-size: 29px
+		.col-md-4:nth-child(1) 
+			p
+				width: 60%
+		.col-md-4:nth-child(2) 
+			p
+				width: 70%
+		img
+			width: 2.5%
+
+@media screen and (max-width: 1904px)
+	.Footer
+		h2
+			font-size: 28px
+
+@media screen and (max-width: 1845px)
+	.Footer
+		h2
+			font-size: 27px
+
+@media screen and (max-width: 1785px)
+	.Footer
+		h2
+			font-size: 26px
+
+@media screen and (max-width: 1726px)
+	.Footer
+		h2
+			font-size: 25px
+
+@media screen and (max-width: 1666px)
+	.Footer
+		h2
+			font-size: 24px
+
+@media screen and (max-width: 1607px)
+	.Footer
+		h2
+			font-size: 23px
+
+@media screen and (max-width: 1547px)
+	.Footer
+		h2
+			font-size: 22px
+
+@media screen and (max-width: 1488px)
+	.Footer
+		h2
+			font-size: 21px
+
+@media screen and (max-width: 1428px)
+	.Footer
+		h2
+			font-size: 20px
+
+@media screen and (max-width: 1369px)
+	.Footer
+		h2
+			font-size: 19px
+
+@media screen and (max-width: 1366px)
+	.col-lg-8
+		width: 83.33333333%
+	.col-lg-offset-2
+		margin-left: 8.33333333%
+
+@media screen and (max-width: 1309px)
+	.Footer
+		h2
+			font-size: 18px
+
+@media screen and (max-width: 1250px)
+	.Footer
+		h2
+			font-size: 17px
+
+@media screen and (max-width: 1199px)
+	.Navbar 
+		.nav-questionmark
+			margin-left: 0
+			&::after
+			    margin-top: 23px
+   				margin-left: -14px
+		h4
+   			margin-left: 44px
+	.Footer 
+		.col-md-4:nth-child(1) 
+			p
+				width: 80%
+		.col-md-4:nth-child(2) 
+			p
+				width: 80%
+		img	
+			width: 2.5%
+	.button-up,
+	.nav-questionmark,
+	.Header
+		display: none
+	.Filters
+		button
+			padding: 8px 6px
+
 @media screen and (max-width: 1024px)
 	.Filters 
 		button
@@ -436,8 +556,6 @@
 		.nav-questionmark
 			margin-left: 12px
 	.Header 
-		.container::after
-			margin-left: 353px
 		p
 			font-size: 14px
 		.last-p
@@ -464,7 +582,8 @@
 				top: 27px
 	.StaffPick 
 		button
-			padding: 15px 28px
+			padding: 15px 0px
+			width: 100%
 		.description-div
 			&::after
 				height: 29px
@@ -484,6 +603,56 @@
 			padding-left: 0
 			margin-top: 25px
 
+@media screen and (max-width: 999px)
+	.Footer
+		h2
+			font-size: 24px
+
+@media screen and (max-width: 991px)
+	.Navbar 
+		h4
+    		margin-left: 0
+
+@media screen and (max-width: 990px)
+	.StaffPick
+		margin-top: 20px
+		button
+			width: 100%
+	.StaffPicks 
+		.purple-hr
+			top: 19px
+
+@media screen and (max-width: 964px)
+	.Footer
+		h2
+			font-size: 23px
+
+@media screen and (max-width: 928px)
+	.Footer
+		h2
+			font-size: 22px
+
+@media screen and (max-width: 892px)
+	.Footer
+		h2
+			font-size: 21px
+
+@media screen and (max-width: 892px)
+	.Footer
+		h2
+			font-size: 20px
+
+@media screen and (max-width: 892px)
+	.Footer
+		h2
+			font-size: 19px
+		img
+			width: 3%
+
+@media screen and (max-width: 785px)
+	.Footer
+		h2
+			font-size: 18px
 
 @media screen and (max-width: 768px)
 	.button-up,
@@ -544,7 +713,7 @@
 			width: 60%
 	.StaffPick 
 		button
-			padding: 15px 94px
+			padding: 15px 0px
 		&:hover
 			border: 2px solid #eee
 			button
@@ -553,6 +722,53 @@
 	.Filters 
 		button
 			padding: 12px
+
+@media screen and (max-width: 767px)
+	.Navbar 
+		.hamburger, 
+		.close-btn
+			font-size: 27px
+			margin-left: 53px
+		img
+			width: 70%
+	.Footer
+		.col-md-4:nth-child(2),
+		.col-md-4:nth-child(1) 
+			border-bottom: 1px solid #eeeeee9e
+		p
+				margin-bottom: 25px
+		img
+			width: 5%
+
+@media screen and (max-width: 748px)
+	.StaffPick
+		button
+			padding: 15px 0
+
+@media screen and (max-width: 650px)
+	.Navbar 
+		.hamburger, 
+		.close-btn
+			margin-left: 40px
+
+@media screen and (max-width: 550px)
+	.Navbar 
+		.hamburger, 
+		.close-btn
+			margin-left: 30px
+
+@media screen and (max-width: 480px)
+	.Navbar 
+		.hamburger, 
+		.close-btn
+			margin-left: 20px
+		img
+			width: 90%
+
+@media screen and (max-width: 430px)
+	.StaffPick
+		h3
+			font-size: 17px
 
 // ---------------------------------- MEDIA-MOBILE-L-STYLES --------------------------------------------------------
 @media screen and (max-width: 425px)
@@ -608,6 +824,27 @@
 		.stepImg
 			width: 50%
 
+@media screen and (max-width: 421px)
+	.Navbar 
+		.hamburger, 
+		.close-btn
+			margin-left: 10px
+	.StaffPick
+		h3
+			font-size: 16px
+		button
+			padding: 15px 0
+
+@media screen and (max-width: 402px)
+	.StaffPick
+		h3
+			font-size: 16px
+
+@media screen and (max-width: 388px)
+	.StaffPick
+		h3
+			font-size: 15px
+
 @media screen and (max-width: 375px)
 	.StaffPick
 		padding: 15px 15px 15px 15px
@@ -619,6 +856,30 @@
 			&::after
 				bottom: 101px
 				height: 29px
+
+@media screen and (max-width: 375px)
+	.StaffPick
+		button
+			padding: 15px 0
+	.Navbar
+		.hamburger, 
+		.close-btn
+			margin-left: 0
+
+@media screen and (max-width: 375px)
+	.StaffPick
+		h3
+			font-size: 14px
+	.Game
+		padding: 15px
+	.Filters
+		button
+			padding: 12px 5px
+
+@media screen and (max-width: 324px)
+	.Game
+		h3
+			font-size: 13px
 
 @media screen and (max-width: 320px)
 	.Game
@@ -639,3 +900,67 @@
 	.Filters 
 		button
 			font-size: 10.5px
+
+@media screen and (max-width: 317px)
+	.StaffPick
+		button
+			font-size: 9px
+		.description-div::after
+			bottom: 98px
+
+@media screen and (max-width: 314px)
+	.StaffPick
+		h3
+			font-size: 14px
+
+@media screen and (max-width: 300px)
+	.StaffPick
+		h3
+			font-size: 13px
+		button
+			font-size: 8.5px
+	.Footer
+		img
+			width: 7%
+
+@media screen and (max-width: 291px)
+	.Filters
+		button
+			padding: 12px 3px
+	.Navbar
+		img
+			width: 100%
+	.StaffPick
+		button
+			font-size: 8px
+
+@media screen and (max-width: 287px)
+	.Filters
+		button
+			font-size: 9.5px
+	.Navbar
+		.hamburger
+			margin-left: -5px
+	.StaffPick
+		h3
+			font-size: 12px
+
+@media screen and (max-width: 281px)
+	.StaffPick
+		button
+			font-size: 7px
+
+@media screen and (max-width: 277px)
+	.StaffPick
+		h3
+			font-size: 11px
+	.StaffPicks
+		h4:first-child
+			font-size: 17px
+
+@media screen and (max-width: 263px)
+	.StaffPicks
+		h4:first-child
+			font-size: 16px
+		.purple-hr
+			top: 17px

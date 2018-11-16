@@ -13,24 +13,28 @@ import StaffPicks from "./Components/StaffPicks";
 
 class App extends Component {
   state = {
-    position: ''
+    position: '',
+    width: ''
   }
 
   toggleFixed = () => {
     this.setState({
-        position: 'fixed'
+        position: 'fixed',
+        width: '100%'
       })
   }
 
   clearState = () => {
     this.setState({
-        position: ''
+        position: '',
+        width: ''
       })
   }
   
   render() {
     const style = {
-        position: this.state.position
+        position: this.state.position,
+        width: this.state.width
     }   
     const buttonUpStyle = {
       position: 'fixed',
