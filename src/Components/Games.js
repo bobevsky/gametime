@@ -26,12 +26,11 @@ class Games extends Component {
 		timeFourClick: false,
 		groupOneClick: false,
 		groupTwoClick: false,
-		groupThreeClick: false,
-
+		groupThreeClick: false
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("https://json-project3-server.herokuapp.com/posts");
+		let games = await axios.get("https://json-server-heroku-aqcspxgllg.now.sh/posts");
 
 		this.setState({
 			games: games.data,

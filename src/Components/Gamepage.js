@@ -13,7 +13,7 @@ class Gamepage extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get(`https://json-project3-server.herokuapp.com/posts/${this.props.match.params.id}`);
+		let games = await axios.get(`https://json-server-heroku-aqcspxgllg.now.sh/posts/${this.props.match.params.id}`);
 		this.setState({
 			games: games.data,
 			steps: games.data.steps
@@ -22,7 +22,7 @@ class Gamepage extends Component {
 	
 	async componentDidUpdate(prevProps){
 		if (this.props.location !== prevProps.location) {
-			let games = await axios.get(`https://json-project3-server.herokuapp.com/posts/${this.props.match.params.id}`);
+			let games = await axios.get(`https://json-server-heroku-aqcspxgllg.now.sh/posts/${this.props.match.params.id}`);
 			this.setState({
 				games: games.data,
 				steps: games.data.steps

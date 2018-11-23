@@ -10,7 +10,7 @@ class StaffPicks extends Component {
 	}
 
 	async componentDidMount(){
-		let games = await axios.get("https://json-project3-server.herokuapp.com/posts");
+		let games = await axios.get("https://json-server-heroku-aqcspxgllg.now.sh/posts");
 		
 		this.setState({
 			games: games.data.filter(game => {
