@@ -123,7 +123,7 @@ class Gamepage extends Component {
 										{this.state.steps.map((step,i) => {
 										const {text} = step;
 										return(
-											<div key={i} className="row">
+											<div key={i} className="row flex">
 												<div className="col-md-9 col-sm-8">
 													<h3>{step.step}</h3>
 													{text.split("\n").map(line => (
@@ -135,7 +135,7 @@ class Gamepage extends Component {
 													))}
 												<hr className={step.stepImg !== "" ? "hidden-xs" : ""}/>
 												</div>
-												{step.stepImg !== "" ? <div className="col-md-3 col-sm-4 col-xs-12 text-center">
+												{step.stepImg !== "" ? <div className="col-md-3 col-sm-4 col-xs-12 text-center flex-advanced">
 													<img src={`StepsImages/${step.stepImg}.png`} alt="" className="stepImg"/>
 													<hr className="hidden-lg hidden-md hidden-sm"/>
 												</div> : null}

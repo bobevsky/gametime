@@ -105,58 +105,39 @@
 	color: white
 	margin-bottom: 10px
 	.container 
-		background-color: #562894		    
-	.row
-		width: 100%
-	.pl-0 
-		padding-left: 0 !important
-	.pr-0
-		padding-right: 0 !important
-	.m-y 
-		margin-top: 30px
-		margin-bottom: 15px
-	.col-md-3
+		background-color: #562894		
+	.flex-header
+		display: flex
+		justify-content: space-evenly
+	.header-inner
+		flex-basis: 219px
+		align-items: center
+		text-align: center
 		img
-			width: 55%	
+			width: 66%
 		h4 
 			color: #b091c5
-			font-size: 13px
-			margin-top: 40px
+			font-size: 14px
+			margin-top: 35px
 			line-height: 1.3
 			letter-spacing: 0.5px
 			span
 				color: white
+				display: block
 		hr
-			width: 62%
-		.header-description
-			width: 64%
-			margin: 0 auto
-		.header-description2
-			width: 80%
-			margin: 0 auto
-		.special-h4 
-			margin-top: 21px
-		.first-h4
-			margin-top: 28px
-	.col-md-2
-		img
-			width: 88%	
-		h4 
-			color: #b091c5
-			font-size: 13px
-			margin-top: 40px
-			line-height: 1.3
-			margin-bottom: 20px
-			letter-spacing: 0.5px
-			span
-				color: white
-		.special-h4 
-			margin-top: 27px
+			width: 90%
+		p
+			font-size: 13.5px
+			letter-spacing: 0.1px
+			word-spacing: 2px
+	.m-y
+		margin: 20px 0	
 	.start-btn
 		color: white
 		border: 1px solid #b091c5
 		padding: 10px 130px
 		font-size: 24px
+		margin: 2px 0 11px 0
 		text-decoration: none
 		cursor: pointer
 		background-color: #562894
@@ -332,6 +313,12 @@
 .Gamepage
 	margin-top: 30px
 	margin-bottom: 20px
+	.flex
+		display: flex
+	.flex-advanced
+		display: flex
+		justify-content: center
+		align-items: center
 	.game-image
 		width: 100%
 		height: 265px
@@ -403,7 +390,8 @@
 		margin-bottom: 60px
 	.stepImg 
 		width: 66%
-		margin-top: 20px
+	hr
+		margin-bottom: 0
 
 // ---------------------------------- BUTTON-UP STYLES ----------------------------------------------------------
 .button-up
@@ -555,31 +543,6 @@
 	.Navbar 
 		.nav-questionmark
 			margin-left: 12px
-	.Header 
-		p
-			font-size: 14px
-		.last-p
-			width: 112%
-		.col-md-3,
-		.col-md-2 
-			h4
-				font-size: 13px
-		.col-md-2 
-			.special-h4
-				margin-top: 12px
-			.last-h4
-				margin-top: 49px
-		.col-md-3
-			.special-h4
-				margin-top: 4px
-		.col-md-3 
-			.relative-img
-				position: relative
-				top: -18px
-		.col-md-2
-			.relative-img
-				position: relative
-				top: 27px
 	.StaffPick 
 		button
 			padding: 15px 0px
@@ -655,11 +618,6 @@
 			font-size: 18px
 
 @media screen and (max-width: 768px)
-	.button-up,
-	.nav-questionmark,
-	.Header
-		display: none
-
 	.StaffPick
 		margin-bottom: 30px
 		.description-div
@@ -710,7 +668,11 @@
 			margin-top: 30px
 			margin-bottom: 30px
 		.stepImg
-			width: 60%
+			width: 40%
+		.flex
+			flex-direction: column
+		.flex-advanced
+			display: block
 	.StaffPick 
 		button
 			padding: 15px 0px
