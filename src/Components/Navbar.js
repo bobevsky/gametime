@@ -44,7 +44,7 @@ class Navbar extends Component {
 				<div className="container">
 					<div className="row flex">
 						<div className="col-md-2 col-sm-3 col-xs-5">
-							<Link to="/"><img src={Logo} alt="Logo" className="img img-responsive"/></Link>
+							<Link to="/" onClick={this.close}><img src={Logo} alt="Logo" className="img img-responsive"/></Link>
 						</div>
 						<div className="col-md-2 col-md-offset-8 col-sm-2 col-sm-offset-7 col-xs-2 col-xs-offset-5">
 							<span className={this.state.active ? "nav-questionmark question-after" : "nav-questionmark"} onClick={this.toggleHeader}>?</span>
