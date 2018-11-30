@@ -197,7 +197,7 @@ class Games extends Component {
 					time: [],
 					players: []
 				},
-				allClick: !prevState.allClick,
+				allClick: true,
 				EnergijaClick: false,
 				AkciiClick: false,
 				InovaciiClick: false,

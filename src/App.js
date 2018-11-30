@@ -8,7 +8,6 @@ import Footer from "./Components/Footer";
 import Gamepage from "./Components/Gamepage";
 import ScrollToTop from "./Components/ScrollToTop";
 import {Helmet} from "react-helmet";
-
 import StaffPicks from "./Components/StaffPicks";
 
 class App extends Component {
