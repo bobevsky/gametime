@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NavbarMenu = props => {
+const NavbarMenu = () => {
 	return (
 		<div className="col-md-12 col-sm-12">
 			<div className="NavbarMenu text-center">

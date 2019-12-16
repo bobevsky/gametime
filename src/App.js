@@ -11,10 +11,13 @@ import { Helmet } from 'react-helmet';
 import StaffPicks from './components/StaffPicks';
 
 class App extends Component {
-  state = {
-    position: '',
-    width: ''
-  };
+  constructor() {
+    super();
+    this.state = {
+      position: '',
+      width: ''
+    };
+  }
 
   toggleFixed = () => {
     this.setState({
@@ -32,18 +35,18 @@ class App extends Component {
 
   render() {
     const style = {
-      position: this.state.position,
-      width: this.state.width
-    };
-    const buttonUpStyle = {
-      position: 'fixed',
-      bottom: 80,
-      right: 20,
-      cursor: 'pointer',
-      transitionDuration: '0.3s',
-      transitionTimingFunction: 'ease-in',
-      transitionDelay: '0s'
-    };
+        position: this.state.position,
+        width: this.state.width
+      },
+      buttonUpStyle = {
+        position: 'fixed',
+        bottom: 80,
+        right: 20,
+        cursor: 'pointer',
+        transitionDuration: '0.3s',
+        transitionTimingFunction: 'ease-in',
+        transitionDelay: '0s'
+      };
 
     return (
       <Router>

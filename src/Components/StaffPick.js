@@ -1,7 +1,6 @@
 import React from 'react';
 
-const StaffPick = props => {
-  const { style, title, category, description } = props;
+const StaffPick = ({ style, title, category, description }) => {
   return (
     <div className="col-md-3 col-sm-6 col-xs-6">
       <div className="StaffPick">

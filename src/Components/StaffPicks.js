@@ -4,9 +4,12 @@ import axios from 'axios';
 import StaffPick from './StaffPick';
 
 class StaffPicks extends Component {
-	state = {
-		games: []
-	};
+	constructor() {
+		super();
+		this.state = {
+			games: []
+		};
+	}
 
 	async componentDidMount() {
 		let games = await axios.get(
@@ -14,19 +17,19 @@ class StaffPicks extends Component {
 		);
 
 		this.setState({
-			games: games.data.filter(game => {
-				return (
+			games: games.data.filter(
+				game =>
 					games.data[8].id === game.id ||
 					games.data[15].id === game.id ||
 					games.data[20].id === game.id ||
 					games.data[41].id === game.id
-				);
-			})
+			)
 		});
 	}
 
 	render() {
 		const { games } = this.state;
+		
 		return (
 			<div className="StaffPicks" id="StaffPicks">
 				<div className="container">

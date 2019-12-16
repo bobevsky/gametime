@@ -1,11 +1,6 @@
 import React from 'react';
-import firstImage from '../assets/img/img-header/01.png';
-import secondImage from '../assets/img/img-header/02.png';
-import thirdImage from '../assets/img/img-header/03.png';
-import fourthImage from '../assets/img/img-header/04.png';
-import fifthImage from '../assets/img/img-header/05.png';
 
-const Header = props => {
+const Header = ({ toggleHeader }) => {
 	return (
 		<div className="Header">
 			<div className="container">
@@ -21,7 +16,10 @@ const Header = props => {
 				<div className="row flex">
 					<div className="col-md-12 flex-header m-y">
 						<div className="header-inner">
-							<img src={firstImage} alt="header-img" />
+							<img
+								src={require('../assets/img/img-header/01.png')}
+								alt="header-img"
+							/>
 							<h4>
 								РАЗДВИЖИ ГО ПРОСТОРОТ СО <span>ENERGIZERS</span>
 							</h4>
@@ -32,7 +30,10 @@ const Header = props => {
 							</p>
 						</div>
 						<div className="header-inner">
-							<img src={secondImage} alt="header-img" />
+							<img
+								src={require('../assets/img/img-header/02.png')}
+								alt="header-img"
+							/>
 							<h4>
 								ОТКЛУЧИ <br />
 								<span>ИНОВАЦИИ</span>
@@ -44,7 +45,10 @@ const Header = props => {
 							</p>
 						</div>
 						<div className="header-inner">
-							<img src={thirdImage} alt="header-img" />
+							<img
+								src={require('../assets/img/img-header/03.png')}
+								alt="header-img"
+							/>
 							<h4>
 								РАЗВИЈ ПЕРСОНАЛНО <span>ЛИДЕРСТВО</span>
 							</h4>
@@ -55,7 +59,10 @@ const Header = props => {
 							</p>
 						</div>
 						<div className="header-inner">
-							<img src={fourthImage} alt="header-img" />
+							<img
+								src={require('../assets/img/img-header/04.png')}
+								alt="header-img"
+							/>
 							<h4>
 								НАПРАВИ ПРОМЕНА ПРЕКУ <br />
 								<span>АКЦИЈА</span>
@@ -67,7 +74,10 @@ const Header = props => {
 							</p>
 						</div>
 						<div className="header-inner">
-							<img src={fifthImage} alt="header-img" />
+							<img
+								src={require('../assets/img/img-header/05.png')}
+								alt="header-img"
+							/>
 							<h4>
 								ИЗГРАДИ НЕПОБЕДЛИВ <span>ТИМ</span>
 							</h4>
@@ -81,7 +91,7 @@ const Header = props => {
 				</div>
 				<div className="row">
 					<div className="col-md-12 text-center ">
-						<button className="start-btn" onClick={props.toggleHeader}>
+						<button className="start-btn" onClick={toggleHeader}>
 							Започни
 						</button>
 					</div>

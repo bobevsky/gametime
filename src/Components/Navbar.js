@@ -4,28 +4,27 @@ import Header from './Header';
 import NavbarMenu from './NavbarMenu';
 
 class Navbar extends Component {
-	state = {
-		active: true,
-		menu: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			active: true,
+			menu: false
+		};
+	}
 
 	toggleHeader = () => {
-		this.setState(prevState => {
-			return {
-				active: !prevState.active,
-				menu: false
-			};
+		this.setState({
+			active: !this.state.active,
+			menu: false
 		});
 		this.props.clearState();
 	};
 
 	toggleNavbarMenu = () => {
 		this.props.fixed();
-		this.setState(prevState => {
-			return {
-				menu: !prevState.menu,
-				active: false
-			};
+		this.setState({
+			menu: !this.state.menu,
+			active: false
 		});
 	};
 
@@ -38,19 +37,25 @@ class Navbar extends Component {
 	};
 
 	render() {
+		const { menu, active } = this.state;
+
 		return (
 			<div className="Navbar">
 				<div className="container">
 					<div className="row flex">
 						<div className="col-md-2 col-sm-3 col-xs-5">
 							<Link to="/" onClick={this.close}>
-								<img src={require('../assets/img/logo.png')} alt="Logo" className="img img-responsive" />
+								<img
+									src={require('../assets/img/logo.png')}
+									alt="Logo"
+									className="img img-responsive"
+								/>
 							</Link>
 						</div>
 						<div className="col-md-2 col-md-offset-8 col-sm-2 col-sm-offset-7 col-xs-2 col-xs-offset-5">
 							<span
 								className={
-									this.state.active
+									active
 										? 'nav-questionmark question-after'
 										: 'nav-questionmark'
 								}
@@ -59,7 +64,7 @@ class Navbar extends Component {
 								?
 							</span>
 							<h4 className="navbar-h4 hidden-xs">МЕНИ</h4>
-							{this.state.menu ? (
+							{menu ? (
 								<span className="close-btn" onClick={this.close}>
 									✕
 								</span>
@@ -70,9 +75,9 @@ class Navbar extends Component {
 							)}
 						</div>
 					</div>
-					<div className="row">{this.state.menu && <NavbarMenu />}</div>
+					<div className="row">{menu && <NavbarMenu />}</div>
 				</div>
-				{this.state.active && <Header toggleHeader={this.toggleHeader} />}
+				{active && <Header toggleHeader={this.toggleHeader} />}
 			</div>
 		);
 	}

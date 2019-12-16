@@ -7,10 +7,13 @@ import { SimpleShareButtons } from 'react-simple-share';
 import { Helmet } from 'react-helmet';
 
 class Gamepage extends Component {
-	state = {
-		games: [],
-		steps: []
-	};
+	constructor() {
+		super();
+		this.state = {
+			games: [],
+			steps: []
+		};
+	}
 
 	async componentDidMount() {
 		let games = await axios.get(
@@ -36,22 +39,23 @@ class Gamepage extends Component {
 
 	render() {
 		const {
-			category,
-			title,
-			description,
-			image,
-			time,
-			players,
-			level,
-			materials
-		} = this.state.games;
-
-		const style = {
-			backgroundImage: image && `url(${require(`../assets/img/img-cards/${image}.png`)})`,
-			backgroundPosition: 'center',
-			backgroundSize: 'contain',
-			backgroundRepeat: 'no-repeat'
-		};
+				category,
+				title,
+				description,
+				image,
+				time,
+				players,
+				level,
+				materials
+			} = this.state.games,
+			{ steps } = this.state,
+			style = {
+				backgroundImage:
+					image && `url(${require(`../assets/img/img-cards/${image}.png`)})`,
+				backgroundPosition: 'center',
+				backgroundSize: 'contain',
+				backgroundRepeat: 'no-repeat'
+			};
 
 		return (
 			<div className="container">
@@ -60,7 +64,10 @@ class Gamepage extends Component {
 						<title>{title}</title>
 						<meta property="og:title" content={title} />
 						<meta property="og:description" content={description} />
-						<meta property="og:image" content={image && require(`../assets/img/img-cards/${image}.png`)} />
+						<meta
+							property="og:image"
+							content={image && require(`../assets/img/img-cards/${image}.png`)}
+						/>
 						<meta property="og:type" content="article" />
 						<meta name="author" content="Kristijan Bobevski" />
 						<meta
@@ -143,36 +150,33 @@ class Gamepage extends Component {
 						<div className="col-md-8 col-md-offset-2 col-xs-10 col-xs-offset-1">
 							<div className="row">
 								<div className="col-md-12">
-									{this.state.steps.map((step, i) => {
-										const { text } = step;
-										return (
-											<div key={i} className="row flex">
-												<div className="col-md-9 col-sm-8">
-													<h3>{step.step}</h3>
-													{text.split('\n').map(line => (
-														<span key={uuid()}>
-															{line}
-															<br />
-															<br />
-														</span>
-													))}
-													<hr
-														className={step.stepImg !== '' ? 'hidden-xs' : ''}
-													/>
-												</div>
-												{step.stepImg !== '' && (
-													<div className="col-md-3 col-sm-4 col-xs-12 text-center flex-advanced">
-														<img
-															src={require(`../assets/img/img-steps/${step.stepImg}.png`)}
-															alt=""
-															className="stepImg"
-														/>
-														<hr className="hidden-lg hidden-md hidden-sm" />
-													</div>
-												)}
+									{steps.map((step, i) => (
+										<div key={i} className="row flex">
+											<div className="col-md-9 col-sm-8">
+												<h3>{step.step}</h3>
+												{step.text.split('\n').map(line => (
+													<span key={uuid()}>
+														{line}
+														<br />
+														<br />
+													</span>
+												))}
+												<hr
+													className={step.stepImg !== '' ? 'hidden-xs' : ''}
+												/>
 											</div>
-										);
-									})}
+											{step.stepImg !== '' && (
+												<div className="col-md-3 col-sm-4 col-xs-12 text-center flex-advanced">
+													<img
+														src={require(`../assets/img/img-steps/${step.stepImg}.png`)}
+														alt=""
+														className="stepImg"
+													/>
+													<hr className="hidden-lg hidden-md hidden-sm" />
+												</div>
+											)}
+										</div>
+									))}
 								</div>
 							</div>
 						</div>

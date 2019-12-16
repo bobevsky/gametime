@@ -1,8 +1,6 @@
 import React from 'react';
 
-const Game = props => {
-  const { style, title, category, time, players } = props;
-
+const Game = ({ style, title, category, time, players }) => {
   return (
     <div className="col-md-3 text-center col-sm-6 col-xs-6">
       <div className="Game">

@@ -5,28 +5,31 @@ import Game from './Game';
 import Filters from './Filters';
 
 class Games extends Component {
-	state = {
-		games: [],
-		separateGames: [],
-		conditions: {
-			category: [],
-			time: [],
-			players: []
-		},
-		allClick: true,
-		EnergijaClick: false,
-		AkciiClick: false,
-		InovaciiClick: false,
-		TimClick: false,
-		LiderstvoClick: false,
-		timeOneClick: false,
-		timeTwoClick: false,
-		timeThreeClick: false,
-		timeFourClick: false,
-		groupOneClick: false,
-		groupTwoClick: false,
-		groupThreeClick: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			games: [],
+			separateGames: [],
+			conditions: {
+				category: [],
+				time: [],
+				players: []
+			},
+			allClick: true,
+			EnergijaClick: false,
+			AkciiClick: false,
+			InovaciiClick: false,
+			TimClick: false,
+			LiderstvoClick: false,
+			timeOneClick: false,
+			timeTwoClick: false,
+			timeThreeClick: false,
+			timeFourClick: false,
+			groupOneClick: false,
+			groupTwoClick: false,
+			groupThreeClick: false
+		};
+	}
 
 	async componentDidMount() {
 		let games = await axios.get(
