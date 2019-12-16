@@ -1,10 +1,10 @@
 import React from 'react';
 
-const StaffPick = ({ style, title, category, description }) => {
+const StaffPick = ({ imgSrc, title, category, description }) => {
   return (
     <div className="col-md-3 col-sm-6 col-xs-6">
       <div className="StaffPick">
-        <div className="StaffPick-image" style={style}></div>
+        <div className="StaffPick-image" style={imgSrc}></div>
         <h4>
           <span>|||</span>
           {category}
