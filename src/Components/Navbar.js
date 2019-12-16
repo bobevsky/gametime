@@ -1,86 +1,86 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
 import NavbarMenu from './NavbarMenu';
 
-class Navbar extends Component {
-	constructor() {
-		super();
-		this.state = {
-			active: true,
-			menu: false
-		};
-	}
+const Navbar = () => {
+	const [state, setState] = useState({
+		isHeaderActive: true,
+		isMenuOpen: false
+	});
 
-	toggleHeader = () => {
-		this.setState({
-			active: !this.state.active,
-			menu: false
-		});
-		this.props.clearState();
-	};
+	useEffect(() => {
+		state.isMenuOpen &&
+			document.body.setAttribute(
+				'style',
+				'position:fixed; width: 100%; height: 100%; overflow: hidden;'
+			);
 
-	toggleNavbarMenu = () => {
-		this.props.fixed();
-		this.setState({
-			menu: !this.state.menu,
-			active: false
+		return () => document.body.removeAttribute('style');
+	}, [state.isMenuOpen]);
+
+	const toggleHeader = () => {
+		setState({
+			isHeaderActive: !state.isHeaderActive,
+			isMenuOpen: false
 		});
 	};
 
-	close = () => {
-		this.props.clearState();
-		this.setState({
-			active: false,
-			menu: false
+	const toggleNavbarMenu = () => {
+		setState({
+			isMenuOpen: !state.isMenuOpen,
+			isHeaderActive: false
 		});
 	};
 
-	render() {
-		const { menu, active } = this.state;
+	const clearState = () => {
+		setState({
+			isHeaderActive: false,
+			isMenuOpen: false
+		});
+	};
 
-		return (
-			<div className="Navbar">
-				<div className="container">
-					<div className="row flex">
-						<div className="col-md-2 col-sm-3 col-xs-5">
-							<Link to="/" onClick={this.close}>
-								<img
-									src={require('../assets/img/logo.png')}
-									alt="Logo"
-									className="img img-responsive"
-								/>
-							</Link>
-						</div>
-						<div className="col-md-2 col-md-offset-8 col-sm-2 col-sm-offset-7 col-xs-2 col-xs-offset-5">
-							<span
-								className={
-									active
-										? 'nav-questionmark question-after'
-										: 'nav-questionmark'
-								}
-								onClick={this.toggleHeader}
-							>
-								?
-							</span>
-							<h4 className="navbar-h4 hidden-xs">МЕНИ</h4>
-							{menu ? (
-								<span className="close-btn" onClick={this.close}>
-									✕
-								</span>
-							) : (
-								<span className="hamburger" onClick={this.toggleNavbarMenu}>
-									☰
-								</span>
-							)}
-						</div>
+	return (
+		<div className="Navbar">
+			<div className="container">
+				<div className="row flex">
+					<div className="col-md-2 col-sm-3 col-xs-5">
+						<Link to="/" onClick={clearState}>
+							<img
+								src={require('../assets/img/logo.png')}
+								alt="Logo"
+								className="img img-responsive"
+							/>
+						</Link>
 					</div>
-					<div className="row">{menu && <NavbarMenu />}</div>
+					<div className="col-md-2 col-md-offset-8 col-sm-2 col-sm-offset-7 col-xs-2 col-xs-offset-5">
+						<span
+							className={
+								state.isHeaderActive
+									? 'nav-questionmark question-after'
+									: 'nav-questionmark'
+							}
+							onClick={toggleHeader}
+						>
+							?
+						</span>
+						<h4 className="navbar-h4 hidden-xs">МЕНИ</h4>
+						{state.isMenuOpen ? (
+							<span className="close-btn" onClick={clearState}>
+								✕
+							</span>
+						) : (
+							<span className="hamburger" onClick={toggleNavbarMenu}>
+								☰
+							</span>
+						)}
+					</div>
 				</div>
-				{active && <Header toggleHeader={this.toggleHeader} />}
+				<div className="row">{state.isMenuOpen && <NavbarMenu />}</div>
 			</div>
-		);
-	}
-}
+			{state.isHeaderActive && <Header toggleHeader={toggleHeader} />}
+		</div>
+	);
+};
 
 export default Navbar;
