@@ -38,7 +38,7 @@ const StaffPicks = () => {
 				</div>
 				<div className="row">
 					{staffPickGames.map(game => (
-						<Link to={`/game/${game.id}`} key={game.id}>
+						<Link to={`/game/${game.id}`} key={game.id} replace>
 							<StaffPick
 								key={game.id}
 								imgSrc={{
