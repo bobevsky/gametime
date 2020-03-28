@@ -24,11 +24,7 @@ const NavbarMenu = () => {
 						</a>
 					</li>
 					<li>
-						<a
-							href="http://codepreneurs.co/"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
+						<a href="http://codepreneurs.co/" target="_blank" rel="noopener noreferrer">
 							Академија за програмирање
 						</a>
 					</li>

@@ -11,9 +11,7 @@ const StaffPicks = () => {
 	}, []);
 
 	async function getStaffPicks() {
-		let games = await axios(
-			'https://json-server-heroku-aqcspxgllg.now.sh/posts'
-		);
+		let games = await axios('https://json-server-heroku-aqcspxgllg.now.sh/posts');
 
 		setStaffPickGames(
 			games.data.filter(

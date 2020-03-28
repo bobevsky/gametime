@@ -11,7 +11,6 @@ const Gamepage = ({ location, match }) => {
 
 	useEffect(() => {
 		getCurrentGame();
-		console.log('done')
 	}, [location]);
 
 	async function getCurrentGame() {
@@ -61,8 +60,7 @@ const Gamepage = ({ location, match }) => {
 							className="game-image"
 							style={{
 								backgroundImage:
-									image &&
-									`url(${require(`../assets/img/img-cards/${image}.png`)})`
+									image && `url(${require(`../assets/img/img-cards/${image}.png`)})`
 							}}
 						></div>
 					</div>
@@ -145,9 +143,7 @@ const Gamepage = ({ location, match }) => {
 														<br />
 													</span>
 												))}
-												<hr
-													className={step.stepImg !== '' ? 'hidden-xs' : ''}
-												/>
+												<hr className={step.stepImg !== '' ? 'hidden-xs' : ''} />
 											</div>
 											{step.stepImg !== '' && (
 												<div className="col-md-3 col-sm-4 col-xs-12 text-center flex-advanced">
