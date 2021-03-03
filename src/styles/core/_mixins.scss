@@ -34,6 +34,10 @@
     &+.footer {
       margin-top: ($gutter-base * 2);
     }
+
+    &.state-colored {
+      padding-bottom: ($gutter-base);
+    }
   }
 
   @media (min-width: 1000px) {
@@ -41,6 +45,10 @@
 
     &+.footer {
       margin-top: ($gutter-base * 3);
+    }
+
+    &.state-colored {
+      padding-bottom: ($gutter-base * 2);
     }
   }
 }

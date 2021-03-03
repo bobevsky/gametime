@@ -57,14 +57,14 @@ const Gamepage = ({ location, match }) => {
             <p>{description}</p>
           </div>
           <Link smooth to="#socialIcons" className="share-link">
-            <i className="fa fa-share-alt fa-3x" aria-hidden="true"></i>
+            <span className="icon-share"></span>
             <span>SHARE</span>
           </Link>
         </div>
         <div className="details-wrapper">
           <div className="detail-box">
             <div className="icon-box">
-              <i className="far fa-clock fa-2x"></i>
+              <span className="icon-clock"></span>
             </div>
             <div className="content-box">
               <p className="label">ВРЕМЕНСКА РАМКА</p>
@@ -73,7 +73,7 @@ const Gamepage = ({ location, match }) => {
           </div>
           <div className="detail-box">
             <div className="icon-box">
-              <i className="fa fa-male fa-2x" aria-hidden="true"></i>
+              <span className="icon-user"></span>
             </div>
             <div className="content-box">
               <p className="label">ГОЛЕМИНА НА ГРУПА</p>
@@ -82,7 +82,7 @@ const Gamepage = ({ location, match }) => {
           </div>
           <div className="detail-box">
             <div className="icon-box">
-              <i className="fab fa-connectdevelop fa-2x"></i>
+              <span className="icon-difficulty"></span>
             </div>
             <div className="content-box">
               <p className="label">ТЕЖИНА</p>
@@ -91,7 +91,7 @@ const Gamepage = ({ location, match }) => {
           </div>
           <div className="detail-box">
             <div className="icon-box">
-              <i className="far fa-edit fa-2x"></i>
+              <span className="icon-materials"></span>
             </div>
             <div className="content-box">
               <p className="label">МАТЕРИЈАЛИ</p>

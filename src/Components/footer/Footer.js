@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="footer state-colored">
     <div className="inner-wrap">
       <div className="primary-segment">
         <div className="content-box">

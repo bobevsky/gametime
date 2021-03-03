@@ -11,10 +11,10 @@ const Game = ({ img, title, category, time, players, id }) => (
       <p className="category">{category}</p>
       <p className="hoverDescription">
         <span>
-          <i className="far fa-clock"></i> {time}
+          <span className="icon-clock"></span> {time}
         </span>
         <span>
-          <i className="fas fa-male"></i> {players}
+          <span className="icon-user"></span> {players}
         </span>
       </p>
     </Link>

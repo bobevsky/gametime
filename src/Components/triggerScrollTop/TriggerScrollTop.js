@@ -28,7 +28,7 @@ const BtnScrollUp = () => {
         })
       }
     >
-      <i className="fas fa-angle-up fa-2x"></i>
+      <span className="icon-arrow-up"></span>
       <span>ПОЧЕТОК</span>
     </button>
   );

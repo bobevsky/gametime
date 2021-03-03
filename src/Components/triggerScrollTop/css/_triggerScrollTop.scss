@@ -3,7 +3,9 @@
   z-index: $zindex-menu;
   bottom: ($gutter-base * 2);
   right: ($gutter-base / 2);
-  padding: ($gutter-base / 6) ($gutter-base / 4);
+  width: rem-calc(60);
+  height: rem-calc(60);
+  padding: 0;
   color: $white-color;
   border: ($border-width-base * 2) solid $white-color;
   background-color: $background-color-primary;
@@ -31,9 +33,9 @@
     display: block;
     font-size: ($gutter-base / 3.75);
     letter-spacing: 0.03125rem;
-  }
 
-  i {
-    font-size: 2em;
+    &:not(:last-child) {
+      margin-bottom: ($gutter-base / 6);
+    }
   }
 }
