@@ -1,0 +1,41 @@
+.game {
+  &.grid-item {
+    @media (min-width: 1000px) and (max-width: 1249px) {
+      &:nth-child(n + 4) {
+        margin-top: ($gutter-base);
+      }
+    }
+  }
+
+  .item-inner {
+    text-align: center;
+
+    &:hover {
+      .hoverDescription {
+        opacity: 1;
+      }
+
+      .img-box img {
+        width: 50%;
+      }
+    }
+  }
+
+  .img-box img {
+    transition: width .3s ease-out;
+  }
+
+  .hoverDescription {
+    @include fluid-font(0.833vw, 12px, 14.4px, 12px);
+    margin-top: ($gutter-base / 3);
+    margin-bottom: 0;
+    opacity: 0;
+    text-transform: lowercase;
+    font-weight: $font-weight-bold;
+    transition: .3s all linear;
+
+    span:not(:last-child) {
+      margin-right: ($gutter-base / 2);
+    }
+  }
+}

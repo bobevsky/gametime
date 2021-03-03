@@ -1,0 +1,123 @@
+.Header {
+  @include section;
+  color: $white-color;
+  display: none;
+
+  &.state-active {
+    @include fadeIn(.3s);
+    display: block;
+  }
+
+  .inner-wrap {
+    @include wrap;
+  }
+
+  .content-box {
+    background-color: $background-color-primary;
+
+    @media (max-width: 999px) {
+      padding: ($gutter-base / 2);
+    }
+
+    @media (min-width: 1000px) {
+      padding: ($gutter-base);
+    }
+  }
+
+  .main-titles {
+    text-align: center;
+
+    &:not(:last-child) {
+      margin-bottom: ($gutter-base);
+    }
+
+    h1 {
+      margin-bottom: ($gutter-base / 1.5);
+    }
+
+    &>*:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .grid-container {
+    @media (min-width: 450px) {
+      justify-content: center;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: ($gutter-base);
+    }
+  }
+
+  .grid-item {
+    @media (min-width: 1000px) {
+      flex: 0 1 20%;
+
+      &:nth-child(5) {
+        margin-top: 0;
+      }
+
+      &:nth-child(n + 6) {
+        margin-top: ($gutter-base);
+      }
+    }
+
+    .item-inner {
+      text-align: center;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      width: 100px;
+
+      &:not(:last-child) {
+        margin-bottom: ($gutter-base / 2);
+      }
+    }
+
+    .block-title {
+      @include fluid-font(0.972vw, 14px, 16.8px, 14px);
+      position: relative;
+      margin-bottom: ($gutter-base / 2);
+      padding-bottom: ($gutter-base / 3);
+      color: $border-color-base-light;
+      line-height: $line-height-small;
+
+      @media (max-width: 449px) {
+        display: inline-block;
+      }
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: $border-width-base;
+        background-color: $background-color-base;
+      }
+    }
+
+    p:not([class]) {
+      @include fluid-font(0.972vw, 14px, 16.8px, 14px);
+      margin-bottom: 0;
+    }
+  }
+
+  .btn.state-secondary {
+    @include fluid-font(1.25vw, 18px, 21.6px, 18px);
+    padding-left: ($gutter-base * 2);
+    padding-right: ($gutter-base * 2);
+
+    @media (min-width: 550px) {
+      width: auto;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import 'core/custom-font';
+@import 'core/custom-icon-font';
+@import 'core/mixins';
+@import 'variables';
+@import 'core/animations';
+
+// The common elements
+@import 'core/common-font-elements';
+@import 'core/common-elements';
+@import 'core/buttons';
+
+// Component specific styles
+@import '../components/footer/css/footer';
+@import '../components/game/css/game';
+@import '../components/navbar/css/navbar';
+@import '../components/header/css/header';
+@import '../components/staffpicks/css/staffpicks';
+@import '../components/filters/css/filters';
+@import '../components/games/css/games';
+@import '../components/gamepage/css/gamepage';
+@import '../components/triggerScrollTop/css/triggerScrollTop';

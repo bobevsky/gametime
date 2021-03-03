@@ -1,0 +1,54 @@
+.btn {
+  @include fluid-font(0.8333vw, 12px, 14.4px, 12px);
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  padding: ($gutter-base / 2) ($gutter-base / 1.5);
+  border: $border-width-base solid $secondary-color;
+  background-color: $background-color-base;
+  color: $text-color-base;
+  text-decoration: none;
+  text-align: center;
+  line-height: $line-height-small;
+  transition: color .3s ease-out, background-color .3s ease-out, border-color .3s ease-out;
+
+  &.state-primary {
+    border-color: $border-color-base;
+    color: $text-color-primary;
+  }
+
+  &.state-secondary {
+    border-color: $border-color-base-light;
+    background-color: $background-color-primary;
+    color: $white-color;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $background-color-primary;
+    color: $text-color-primary;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:not(:disabled) {
+    &:hover {
+      background-color: $background-color-secondary;
+      color: $text-color-primary;
+
+      &.state-primary:hover {
+        border-color: $background-color-primary;
+        background-color: $background-color-primary;
+        color: $white-color;
+      }
+
+      &.state-secondary:hover {
+        border-color: $background-color-base;
+        background-color: $background-color-primary;
+        color: $white-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+html,
+body {
+  @include fluid-font(1.111vw, 16px, 19.2px, 16px);
+  font-family: $font-family-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $text-color-base;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: $gutter-base;
+}
+
+h1 {
+  @include fluid-font(2.361vw, 34px, 40.8px, 34px);
+  font-weight: $font-weight-bold;
+}
+
+h2 {
+  @include fluid-font(1.666vw, 24px, 28.8px, 24px);
+}
+
+h3 {
+  @include fluid-font(1.25vw, 18px, 21.6px, 18px);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: $gutter-base;
+}
+
+ol,
+ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: $gutter-base;
+
+  ol,
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+b,
+strong {
+  font-weight: $font-weight-bold;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  transition: color .3s ease-out;
+
+  &:hover {
+    color: $primary-hover-color;
+  }
+}
+
+.intro {
+  @include fluid-font(1.25vw, 18px, 21.6px, 18px);
+}
+
+.desc {
+  @include fluid-font(0.972vw, 14px, 16.8px, 14px);
+}

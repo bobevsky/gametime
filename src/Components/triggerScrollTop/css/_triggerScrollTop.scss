@@ -1,0 +1,39 @@
+.trigger-scrollTop {
+  position: fixed;
+  z-index: $zindex-menu;
+  bottom: ($gutter-base * 2);
+  right: ($gutter-base / 2);
+  padding: ($gutter-base / 6) ($gutter-base / 4);
+  color: $white-color;
+  border: ($border-width-base * 2) solid $white-color;
+  background-color: $background-color-primary;
+  transition: background-color .3s ease-out;
+  text-align: center;
+  cursor: pointer;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+  display: none;
+
+  &.state-active {
+    @include fadeIn(.3s);
+    display: block;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: $primary-hover-color;
+  }
+
+  span {
+    display: block;
+    font-size: ($gutter-base / 3.75);
+    letter-spacing: 0.03125rem;
+  }
+
+  i {
+    font-size: 2em;
+  }
+}

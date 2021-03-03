@@ -1,0 +1,7 @@
+.games {
+  @include section;
+
+  .inner-wrap {
+    @include wrap;
+  }
+}

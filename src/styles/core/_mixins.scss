@@ -1,0 +1,64 @@
+// Automated rem sizes
+@function rem-calc($size) {
+  @return ($size / 16) * 1rem;
+}
+
+@mixin fluid-font($responsive, $min, $max: false, $fallback: false) {
+  $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+  $dimension: if(unit($responsive)=='vh', 'height', 'width');
+  $min-breakpoint: $min / $responsive-unitless * 100;
+
+  @media (max-#{$dimension}: #{$min-breakpoint}) {
+    font-size: $min;
+  }
+
+  @if $max {
+    $max-breakpoint: $max / $responsive-unitless * 100;
+
+    @media (min-#{$dimension}: #{$max-breakpoint}) {
+      font-size: $max;
+    }
+  }
+
+  @if $fallback {
+    font-size: $fallback;
+  }
+
+  font-size: $responsive;
+}
+
+@mixin section {
+  @media (max-width: 999px) {
+    padding-top: ($gutter-base);
+
+    &+.footer {
+      margin-top: ($gutter-base * 2);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    padding-top: ($gutter-base * 2);
+
+    &+.footer {
+      margin-top: ($gutter-base * 3);
+    }
+  }
+}
+
+@mixin wrap {
+  @media (max-width: 999px) {
+    padding-left: ($gutter-base / 2);
+    padding-right: ($gutter-base / 2);
+  }
+
+  @media (min-width: 1000px) {
+    padding-left: ($gutter-base);
+    padding-right: ($gutter-base);
+  }
+
+  @media (min-width: 1250px) {
+    max-width: $max-width-base;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,70 +1,42 @@
-import React from 'react';
-import './styles/App.sass';
-import { HashRouter as Router, Switch, Route } from 'react-router-dom';
-import ScrollUpButton from 'react-scroll-up';
-import Navbar from './components/Navbar';
-import Games from './components/Games';
-import Footer from './components/Footer';
-import Gamepage from './components/Gamepage';
-import ScrollToTop from './components/ScrollToTop';
-import { Helmet } from 'react-helmet';
-import StaffPicks from './components/StaffPicks';
+import React from "react";
+import "./styles/global.scss";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { Helmet } from "react-helmet";
+import Navbar from "./components/navbar";
+import Games from "./components/games";
+import Footer from "./components/footer";
+import Gamepage from "./components/gamepage";
+import ScrollToTop from "./components/scrollToTop";
+import StaffPicks from "./components/staffpicks";
+import TriggerScrollTop from "./components/triggerScrollTop";
 
-const App = () => {
-  const buttonUpStyle = {
-    position: 'fixed',
-    bottom: 80,
-    right: 20,
-    cursor: 'pointer',
-    transitionDuration: '0.3s',
-    transitionTimingFunction: 'ease-in',
-    transitionDelay: '0s'
-  };
-
-  return (
-    <Router>
-      <ScrollToTop>
-        <div className="App">
-          <Helmet>
-            <title>BrainsterBox</title>
-            <meta property="og:title" content="BrainsterBox" />
-            <meta
-              property="og:description"
-              content="Вашата лична кутија со ресурси и алатки за креативна колаборација и
+const App = () => (
+  <Router>
+    <ScrollToTop>
+      <Helmet>
+        <title>Brainster Box</title>
+        <meta property="og:title" content="BrainsterBox" />
+        <meta
+          property="og:description"
+          content="Вашата лична кутија со ресурси и алатки за креативна колаборација и
               откривање на потенцијалот во твојот тим или организација."
-            />
-            <meta
-              property="og:image"
-              content="http://toolbox.hyperisland.com/images/fb-og.png"
-            />
-            <meta property="og:type" content="article" />
-            <meta name="author" content="Kristijan Bobevski" />
-            <meta
-              property="og:url"
-              content="https://bobevsky.github.io/gametime/"
-            />
-            <meta
-              name="base_url"
-              content="https://bobevsky.github.io/gametime/"
-            />
-          </Helmet>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Games} />
-            <Route exact path="/game/:id" component={Gamepage} />
-          </Switch>
-          <StaffPicks />
-          <Footer />
-          <ScrollUpButton showUnder={160} style={buttonUpStyle}>
-            <div className="text-center button-up">
-              <i className="fas fa-angle-up fa-2x"></i>
-              <span>ПОЧЕТОК</span>
-            </div>
-          </ScrollUpButton>
-        </div>
-      </ScrollToTop>
-    </Router>
-  );
-};
+        />
+        <meta property="og:image" content="http://toolbox.hyperisland.com/images/fb-og.png" />
+        <meta property="og:type" content="article" />
+        <meta name="author" content="Kristijan Bobevski" />
+        <meta property="og:url" content="https://bobevsky.github.io/gametime/" />
+        <meta name="base_url" content="https://bobevsky.github.io/gametime/" />
+      </Helmet>
+      <Navbar />
+      <Switch>
+        <Route exact path="/" component={Games} />
+        <Route exact path="/Gamepage/:id" component={Gamepage} />
+      </Switch>
+      <StaffPicks />
+      <Footer />
+      <TriggerScrollTop />
+    </ScrollToTop>
+  </Router>
+);
 
 export default App;

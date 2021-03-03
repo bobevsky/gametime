@@ -1,0 +1,94 @@
+.footer {
+  @include section;
+  background-color: $background-color-primary;
+  color: $white-color;
+
+  .inner-wrap {
+    @include wrap;
+  }
+
+  h2 {
+    line-height: $line-height-small;
+
+    @media (max-width: 999px) {
+      margin-bottom: ($gutter-base / 2);
+    }
+
+    @media (min-width: 1000px) {
+      margin-bottom: ($gutter-base);
+    }
+  }
+
+  ul {
+    line-height: $line-height-nulled;
+
+    li:not(:last-child) {
+      margin-bottom: ($gutter-base / 3);
+    }
+
+    a {
+      color: $white-color;
+      display: block;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .primary-segment {
+    @media (max-width: 999px) {
+      &:not(:last-child) {
+        margin-bottom: ($gutter-base);
+      }
+    }
+
+    @media (min-width: 1000px) {
+      display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: ($gutter-base * 2);
+      }
+
+      .content-box {
+        flex: 1 1 33.333%;
+
+        &:not(:last-child) {
+          margin-right: ($gutter-base * 2);
+        }
+      }
+    }
+
+    .content-box {
+      @media (max-width: 999px) {
+        &:not(:last-child) {
+          margin-bottom: ($gutter-base);
+        }
+      }
+
+      &>*:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .secondary-segment a {
+    display: inline-block;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &:not(:last-child) {
+      margin-right: ($gutter-base / 2);
+    }
+
+    img {
+      width: rem-calc(30);
+    }
+  }
+}

@@ -1,0 +1,135 @@
+::selection {
+  background: transparentize($text-color-base, .8);
+}
+
+body {
+  background-color: $background-color-base;
+}
+
+hr {
+  height: 0;
+  border-width: $border-width-base 0 0;
+  border-style: solid;
+  border-color: $border-color-base;
+  margin-top: 0;
+  margin-bottom: $gutter-base;
+}
+
+.flex-img img {
+  width: 100%;
+  display: block;
+}
+
+.games,
+.Header {
+  .grid-container {
+    @media (min-width: 450px) and (max-width: 999px) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .grid-item {
+    @media (max-width: 449px) {
+      &:not(:first-child) {
+        margin-top: ($gutter-base / 1.5);
+      }
+    }
+
+    @media (min-width: 450px) {
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+
+    @media (min-width: 450px) and (max-width: 699px) {
+      flex-basis: 50%;
+
+      &:nth-child(n + 3) {
+        margin-top: ($gutter-base / 1.2);
+      }
+    }
+
+    @media (min-width: 700px) and (max-width: 1249px) {
+      flex-basis: 33.333%;
+    }
+
+    @media (min-width: 700px) and (max-width: 999px) {
+      &:nth-child(n + 4) {
+        margin-top: ($gutter-base / 1.2);
+      }
+    }
+  }
+}
+
+.games,
+.Staffpicks {
+  .item-inner {
+    padding: ($gutter-base / 2);
+    border: ($border-width-base * 2) solid $background-color-secondary;
+    transition: border-color .3s ease-out;
+
+    &:hover {
+      border-color: $border-color-base;
+    }
+  }
+}
+
+.grid-container {
+  @media (min-width: 450px) and (max-width: 999px) {
+    margin-right: -($gutter-base / 2);
+  }
+
+  @media (min-width: 1000px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -($gutter-base);
+  }
+
+  .grid-item {
+    @media (min-width: 1250px) {
+      flex-basis: 25%;
+
+      &:nth-child(n + 5) {
+        margin-top: 2.0833vw;
+      }
+    }
+  }
+
+  .item-inner {
+    display: block;
+    height: 100%;
+
+    @media (min-width: 450px) and (max-width: 999px) {
+      margin-right: ($gutter-base / 2);
+    }
+
+    @media (min-width: 1000px) {
+      margin-right: ($gutter-base);
+    }
+
+    h3 {
+      @include fluid-font(1.111vw, 16px, 19.2px, 16px);
+      margin-top: ($gutter-base / 1.5);
+      margin-bottom: ($gutter-base / 6);
+      color: $text-color-base;
+    }
+
+    .img-box {
+      margin-bottom: ($gutter-base / 1.5);
+      padding: ($gutter-base / 1.5) 0;
+      text-align: center;
+
+      img {
+        width: 60%;
+      }
+    }
+  }
+}
+
+.category {
+  margin: 0;
+  color: $text-color-primary;
+  text-transform: uppercase;
+  font-size: ($gutter-base / 3);
+  font-weight: bold;
+}

@@ -1,0 +1,84 @@
+@mixin animate($name, $duration) {
+  animation: $name $duration;
+  animation-fill-mode: both;
+}
+
+@mixin fadeIn($duration) {
+  @include animate(fadeIn, $duration);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin fadeInUp($duration) {
+  @include animate(fadeInUp, $duration);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 70%, 0);
+
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@mixin fadeOutDown($duration) {
+  @include animate(fadeOutDown, $duration);
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, 70%, 0);
+    pointer-events: none;
+    visibility: hidden;
+  }
+}
+
+@mixin fadeInDownLight($duration) {
+  @include animate(fadeInDownLight, $duration);
+}
+
+@keyframes fadeInDownLight {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -15%, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@mixin spin($duration) {
+  @include animate(spin, $duration);
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

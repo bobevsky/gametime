@@ -1,0 +1,46 @@
+// Font settings
+$font-family-base: 'Inter', sans-serif;
+
+$line-height-medium: 1.75;
+$line-height-base:   1.5;
+$line-height-small:  1.25;
+$line-height-nulled: 1;
+
+$font-weight-light:  300;
+$font-weight-normal: 400;
+$font-weight-bold:   700;
+$font-weight-base:   $font-weight-normal;
+
+// Size settings
+$max-width-base: 88vw;
+$gutter-base:    rem-calc(30);
+
+$border-radius-base: rem-calc(4);
+$border-width-base:  rem-calc(1);
+
+// Z-index settings
+$zindex-menu:     1337;
+$zindex-scale:    10;
+$zindex-modal-bg: (($zindex-menu) + ($zindex-scale));
+$zindex-modal:    (($zindex-modal-bg) + ($zindex-scale));
+
+// Color settings
+$white-color:                #FFF;
+$primary-color:              #562894;
+$secondary-color:            #EEE;
+$tertiary-color:             #615C5C;
+
+$text-color-base:            $tertiary-color;
+$text-color-medium:          transparentize($text-color-base, .35);
+$text-color-light:           transparentize($text-color-base, .5);
+$text-color-primary:         $primary-color;
+$text-color-primary-medium:  transparentize($text-color-primary, .35);
+
+$background-color-base:      $white-color;
+$background-color-primary:   $primary-color;
+$background-color-secondary: $secondary-color;
+
+$border-color-base:          $primary-color;
+$border-color-base-light:    #C7AFD8;
+
+$primary-hover-color:        lighten($primary-color, 10%);
