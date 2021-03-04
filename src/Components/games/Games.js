@@ -151,12 +151,14 @@ const Games = () => {
           setFiltersVisibility={setFiltersVisibility}
         />
         <div className="grid-container" ref={results}>
-          {!gamesToRender.length ? (
+          {!gamesData.length ? (
             <img
               src={require("../../assets/img/filters_loader.gif")}
               alt=""
               className="filters-loader"
             />
+          ) : !gamesToRender.length ? (
+            <p className="no-results">Нема пронајдени резултати.</p>
           ) : (
             gamesToRender.map((game) => (
               <Game

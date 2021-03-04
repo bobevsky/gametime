@@ -6,10 +6,8 @@
   }
 }
 
-.filters-loader {
-  display: block;
-  width: rem-calc(100);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: ($gutter-base / 2);
+.no-results {
+  margin-bottom: 0;
+  flex: 1 1 auto;
+  text-align: center;
 }

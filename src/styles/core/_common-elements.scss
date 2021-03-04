@@ -167,3 +167,11 @@ hr {
     }
   }
 }
+
+.filters-loader {
+  display: block;
+  width: rem-calc(100);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: ($gutter-base / 2);
+}
