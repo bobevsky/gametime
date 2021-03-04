@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import StaffPickItem from "./StaffPickItem";
+import { API_URL } from "../../config";
 
 const StaffPicks = () => {
   const [staffPickGames, setStaffPickGames] = useState([]);
 
   useEffect(() => {
+    const getStaffPicks = async () => {
+      const { data } = await axios(API_URL);
+
+      setStaffPickGames(
+        data.filter(
+          (game) =>
+            data[8].id === game.id ||
+            data[15].id === game.id ||
+            data[20].id === game.id ||
+            data[41].id === game.id
+        )
+      );
+    };
+
     getStaffPicks();
   }, []);
-
-  const getStaffPicks = async () => {
-    let games = await axios("https://project3-server.herokuapp.com/posts");
-
-    setStaffPickGames(
-      games.data.filter(
-        (game) =>
-          games.data[8].id === game.id ||
-          games.data[15].id === game.id ||
-          games.data[20].id === game.id ||
-          games.data[41].id === game.id
-      )
-    );
-  };
 
   return (
     <div className="Staffpicks" id="staffpicks">

@@ -4,19 +4,20 @@ import axios from "axios";
 import ReactDisqusComments from "react-disqus-comments";
 import { Helmet } from "react-helmet";
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
+import { API_URL, PROJECT_URL } from "../../config";
 
 const Gamepage = ({ location, match }) => {
   const [currentGame, setCurrentGame] = useState({});
 
   useEffect(() => {
+    const getCurrentGame = async () => {
+      const { data } = await axios(`${API_URL}/${match.params.id}`);
+
+      setCurrentGame(data);
+    };
+
     getCurrentGame();
   }, [location]);
-
-  const getCurrentGame = async () => {
-    let game = await axios(`https://project3-server.herokuapp.com/posts/${match.params.id}`);
-
-    setCurrentGame(game.data);
-  };
 
   const {
     category,
@@ -30,7 +31,7 @@ const Gamepage = ({ location, match }) => {
     steps,
   } = currentGame;
 
-  const url = `https://bobevsky.github.io/gametime/#/game/${image}`;
+  const url = `${PROJECT_URL}/#/game/${image}`;
 
   return (
     <div className="gamepage">
