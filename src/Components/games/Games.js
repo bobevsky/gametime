@@ -151,8 +151,14 @@ const Games = () => {
           setFiltersVisibility={setFiltersVisibility}
         />
         <div className="grid-container" ref={results}>
-          {gamesToRender.map((game) => {
-            return (
+          {!gamesToRender.length ? (
+            <img
+              src={require("../../assets/img/filters_loader.gif")}
+              alt=""
+              className="filters-loader"
+            />
+          ) : (
+            gamesToRender.map((game) => (
               <Game
                 key={game.id}
                 title={game.title}
@@ -162,8 +168,8 @@ const Games = () => {
                 id={game.id}
                 img={require(`../../assets/img/img-cards/${game.image}.png`)}
               />
-            );
-          })}
+            ))
+          )}
         </div>
       </div>
     </div>
