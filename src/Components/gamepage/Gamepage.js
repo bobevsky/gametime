@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios";
 import ReactDisqusComments from "react-disqus-comments";
-import { SimpleShareButtons } from "react-simple-share";
 import { Helmet } from "react-helmet";
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from "react-share";
 
 const Gamepage = ({ location, match }) => {
   const [currentGame, setCurrentGame] = useState({});
@@ -30,6 +30,8 @@ const Gamepage = ({ location, match }) => {
     steps,
   } = currentGame;
 
+  const url = `https://bobevsky.github.io/gametime/#/game/${image}`;
+
   return (
     <div className="gamepage">
       <div className="inner-wrap">
@@ -43,11 +45,8 @@ const Gamepage = ({ location, match }) => {
           />
           <meta property="og:type" content="article" />
           <meta name="author" content="Kristijan Bobevski" />
-          <meta
-            property="og:url"
-            content={`https://bobevsky.github.io/gametime/#/game/${image}/`}
-          />
-          <meta name="base_url" content={`https://bobevsky.github.io/gametime/#/game/${image}/`} />
+          <meta property="og:url" content={url} />
+          <meta name="base_url" content={url} />
         </Helmet>
         <div className="primary-section">
           {image && <img src={require(`../../assets/img/img-cards/${image}.png`)} alt="" />}
@@ -134,13 +133,17 @@ const Gamepage = ({ location, match }) => {
             url={window.location.href}
           />
         </div>
-        <div className="row" id="socialIcons">
-          <div className="col-md-12">
-            <SimpleShareButtons
-              whitelist={["Facebook", "Twitter", "LinkedIn", "Google+"]}
-              size="40px"
-            />
-          </div>
+        <div id="socialIcons" className="social-container">
+          <p className="label">Сподели:</p>
+          <FacebookShareButton url={url} quote={title} className="social-icon">
+            <span className="icon-facebook"></span>
+          </FacebookShareButton>
+          <LinkedinShareButton url={url} className="social-icon">
+            <span className="icon-linkedin"></span>
+          </LinkedinShareButton>
+          <TwitterShareButton url={url} title={title} className="social-icon">
+            <span className="icon-twitter"></span>
+          </TwitterShareButton>
         </div>
       </div>
     </div>

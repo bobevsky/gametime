@@ -76,19 +76,9 @@
     }
   }
 
-  .secondary-segment a {
+  .social-container a {
     display: inline-block;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    &:not(:last-child) {
-      margin-right: ($gutter-base / 2);
-    }
-
-    img {
-      width: rem-calc(30);
-    }
+    text-align: center;
+    background-color: $primary-hover-color !important;
   }
 }

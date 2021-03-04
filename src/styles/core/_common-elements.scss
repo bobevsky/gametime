@@ -133,3 +133,37 @@ hr {
   font-size: ($gutter-base / 3);
   font-weight: bold;
 }
+
+.social-container {
+  margin-top: ($gutter-base / 2);
+
+  .label {
+    @include fluid-font(0.972vw, 14px, 16.8px, 14px);
+    margin-bottom: ($gutter-base / 3);
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: $background-color-primary !important;
+    color: $white-color !important;
+    transition: background-color .3s ease-out;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      background-color: $primary-hover-color !important;
+    }
+
+    &:not(:last-child) {
+      margin-right: ($gutter-base / 3);
+    }
+
+    [class^='icon-']:before {
+      font-size: ($gutter-base / 1.5);
+    }
+  }
+}
