@@ -4,8 +4,8 @@ self.__precacheManifest = [
     "url": "/gametime/static/media/27.7557c58a.png"
   },
   {
-    "revision": "f12cbbf0f208fee9d3ac",
-    "url": "/gametime/static/css/main.3e824c5b.chunk.css"
+    "revision": "a32eff4ee0a39fe43f31",
+    "url": "/gametime/static/css/main.9f27bac3.chunk.css"
   },
   {
     "revision": "cd38a6dd73f3d7af149d",
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/gametime/static/media/icomoon.80ace9fe.ttf"
   },
   {
-    "revision": "e561f3f47d2cd06f8586a6505db5f01d",
-    "url": "/gametime/static/media/icomoon.e561f3f4.svg"
-  },
-  {
     "revision": "af0f0094a34adb94af5b4c0fc7e36f9b",
     "url": "/gametime/static/media/icomoon.af0f0094.woff"
+  },
+  {
+    "revision": "e561f3f47d2cd06f8586a6505db5f01d",
+    "url": "/gametime/static/media/icomoon.e561f3f4.svg"
   },
   {
     "revision": "b48fe09b148f195f47439945f9d2cd35",
@@ -132,8 +132,8 @@ self.__precacheManifest = [
     "url": "/gametime/static/media/26.5bc17baf.png"
   },
   {
-    "revision": "f12cbbf0f208fee9d3ac",
-    "url": "/gametime/static/js/main.f12cbbf0.chunk.js"
+    "revision": "a32eff4ee0a39fe43f31",
+    "url": "/gametime/static/js/main.a32eff4e.chunk.js"
   },
   {
     "revision": "06c7f6fee983e7357c4909a36d362e71",
@@ -264,7 +264,7 @@ self.__precacheManifest = [
     "url": "/gametime/static/media/9.843ab43a.png"
   },
   {
-    "revision": "c105a116d02e7c15766e9e3990dfc03d",
+    "revision": "534bf85808c757608da856f1a6e280cd",
     "url": "/gametime/index.html"
   }
 ];
