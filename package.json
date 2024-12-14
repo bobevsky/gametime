@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://bobevsky.github.io/gametime",
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "gh-pages": "^2.2.0",
     "node-sass": "^4.14.1",
     "react": "^16.14.0",
